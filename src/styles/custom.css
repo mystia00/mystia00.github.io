@@ -1,32 +1,82 @@
-/* 밤 포장마차 테마: 남색 밤하늘 + 초롱불 주황 */
-@import url('https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@400;500;700&display=swap');
+/* 야작식당 공략노트 — 데이터 위주의 담백한 스타일 */
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css');
 
 :root {
-  --sl-font: 'Noto Sans KR', system-ui, sans-serif;
+  --sl-font: 'Pretendard Variable', Pretendard, system-ui, sans-serif;
+  --sl-text-h1: 1.9rem;
+  --sl-text-h2: 1.35rem;
+  --sl-text-h3: 1.1rem;
+  --sl-content-width: 60rem;
 }
-/* 어두운 모드 */
 :root[data-theme='dark'] {
-  --sl-color-accent-low: #3a1d14;
-  --sl-color-accent: #ff6a3d;
-  --sl-color-accent-high: #ffd2bd;
-  --sl-color-black: #12122a;
-  --sl-color-gray-6: #1c1c3a;
-  --sl-color-gray-5: #2e2d52;
+  --sl-color-accent-low: #3b1a16;
+  --sl-color-accent: #f0705a;
+  --sl-color-accent-high: #ffd4cb;
 }
-/* 밝은 모드 */
 :root[data-theme='light'] {
-  --sl-color-accent-low: #ffe3d6;
-  --sl-color-accent: #c63f17;
-  --sl-color-accent-high: #6e200a;
+  --sl-color-accent-low: #fbe4df;
+  --sl-color-accent: #b3261e;
+  --sl-color-accent-high: #5c120d;
 }
-h1, h2, h3, .site-title { font-family: 'Jua', 'Noto Sans KR', sans-serif; font-weight: 400; }
+h1, h2, h3 { letter-spacing: -0.01em; }
+.sl-markdown-content h2 { border-bottom: 1px solid var(--sl-color-hairline); padding-bottom: 0.3rem; }
+
+/* 일반 마크다운 표: 휴대폰에서 가로 스크롤 */
+.sl-markdown-content table:not(.cust):not(.tagidx) { display: block; overflow-x: auto; }
+.sl-markdown-content th { white-space: nowrap; }
+
+/* 검색 막대 */
+.finder-bar { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+.finder-bar input, .finder-bar select, .finder-bar button {
+  font: inherit; font-size: 0.9rem; min-height: 2.5rem; padding: 0 0.7rem;
+  border: 1px solid var(--sl-color-gray-5); border-radius: 6px;
+  background: var(--sl-color-bg); color: var(--sl-color-white);
+}
+.finder-bar input { flex: 1 1 12rem; }
+.finder-bar select { flex: 0 1 11rem; }
+.finder-bar button { cursor: pointer; background: var(--sl-color-gray-6); }
+.finder-bar :focus-visible { outline: 2px solid var(--sl-color-accent); outline-offset: 1px; }
+.finder-count { font-size: 0.85rem; color: var(--sl-color-gray-3); margin: 0.5rem 0 0 !important; }
+.finder-empty { color: var(--sl-color-gray-3); padding: 1rem 0; }
+
+/* 데이터 표 */
+.finder-scroll { overflow-x: auto; margin-top: 0.5rem !important; border: 1px solid var(--sl-color-hairline); border-radius: 8px; }
+.sl-markdown-content table.cust, .sl-markdown-content table.tagidx {
+  display: table; width: 100%; margin: 0; border-collapse: collapse; font-size: 0.85rem;
+}
+table.cust th, table.tagidx th {
+  position: sticky; top: 0; background: var(--sl-color-gray-6); text-align: left;
+  font-weight: 600; padding: 0.55rem 0.6rem; border-bottom: 1px solid var(--sl-color-gray-5);
+}
+table.cust td, table.tagidx td {
+  padding: 0.5rem 0.6rem; vertical-align: top; border: 0; border-bottom: 1px solid var(--sl-color-hairline);
+  line-height: 1.9;
+}
+table.cust tr[hidden] { display: none; }
+table.cust tbody tr:hover, table.tagidx tbody tr:hover { background: var(--sl-color-gray-7, var(--sl-color-gray-6)); }
+td.nm { font-weight: 600; white-space: nowrap; }
+td.rg { white-space: nowrap; }
+.dlc { display: block; font-size: 0.72rem; color: var(--sl-color-gray-3); line-height: 1.2; }
+.num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.badge {
+  margin-left: 0.35rem; font-size: 0.7rem; font-weight: 600; padding: 0.05rem 0.35rem;
+  border-radius: 4px; background: var(--sl-color-accent-low); color: var(--sl-color-accent-high); vertical-align: 1px;
+}
+.muted { color: var(--sl-color-gray-4); }
+
+/* 태그 칩 */
+.chip {
+  display: inline-block; white-space: nowrap; margin: 0 0.25rem 0.1rem 0; padding: 0 0.4rem;
+  font-size: 0.78rem; line-height: 1.55; border-radius: 4px; border: 1px solid transparent;
+}
+.chip.like { background: var(--sl-color-gray-6); color: var(--sl-color-white); }
+.chip.dis { color: var(--sl-color-gray-3); border-color: var(--sl-color-gray-5); }
+.chip.drk { background: var(--sl-color-gray-6); color: var(--sl-color-white); }
+.chip.hit { background: var(--sl-color-accent); color: #fff; }
 
 /* 광고 자리 */
-.ad-slot { margin: 2rem 0; min-height: 100px; text-align: center; }
+.ad-slot { margin: 2rem 0; min-height: 90px; text-align: center; }
 .ad-slot.empty {
-  border: 2px dashed var(--sl-color-gray-5); border-radius: 12px;
-  display: grid; place-items: center; color: var(--sl-color-gray-3); font-size: 0.85rem;
+  border: 1px dashed var(--sl-color-gray-5); border-radius: 8px;
+  display: grid; place-items: center; color: var(--sl-color-gray-4); font-size: 0.8rem;
 }
-
-/* 표를 휴대폰에서 가로 스크롤 */
-.sl-markdown-content table { display: block; overflow-x: auto; white-space: nowrap; }
