@@ -1,0 +1,46 @@
+---
+// 태그별로 어떤 손님이 좋아하고 싫어하는지. customers.json에서 자동으로 만들어요.
+import data from '../data/customers.json';
+
+interface Props { kind: 'food' | 'drink' }
+const { kind } = Astro.props;
+
+const ko = (a: string, b: string) => a.localeCompare(b, 'ko');
+const tags =
+  kind === 'food'
+    ? [...new Set(data.flatMap((c) => [...c.like, ...c.dislike]))].sort(ko)
+    : [...new Set(data.flatMap((c) => c.drink))].sort(ko);
+
+const rows = tags.map((t) => ({
+  tag: t,
+  likes: data.filter((c) => (kind === 'food' ? c.like : c.drink).includes(t)).map((c) => c.name),
+  dislikes: kind === 'food' ? data.filter((c) => c.dislike.includes(t)).map((c) => c.name) : [],
+}));
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const link = (t: string) => `${base}/customers/rare/?${kind}=${encodeURIComponent(t)}`;
+---
+
+<div class="finder-scroll">
+  <table class="tagidx">
+    <thead>
+      <tr>
+        <th>태그</th>
+        <th class="num">손님 수</th>
+        <th>좋아하는 손님</th>
+        {kind === 'food' && <th>싫어하는 손님</th>}
+      </tr>
+    </thead>
+    <tbody>
+      {rows.map((r) => (
+        <tr id={`t-${r.tag.replace(/\s+/g, '-')}`}>
+          <td class="nm"><a href={link(r.tag)}>{r.tag}</a></td>
+          <td class="num">{r.likes.length}</td>
+          <td>{r.likes.map((n) => <span class="chip like">{n}</span>)}</td>
+          {kind === 'food' && (
+            <td>{r.dislikes.length ? r.dislikes.map((n) => <span class="chip dis">{n}</span>) : <span class="muted">없음</span>}</td>
+          )}
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
