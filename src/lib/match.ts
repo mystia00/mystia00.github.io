@@ -46,3 +46,14 @@ const portraits = icons.customers as Record<string, string>;
 export const dishIcon = (d: Dish) => (dishIcons[d.id] ? `${base}/icons/dishes/${d.id}.webp` : null);
 /** 손님 초상 주소 (없으면 null) */
 export const portrait = (name: string) => (portraits[name] ? `${base}/icons/customers/${encodeURIComponent(name)}.webp` : null);
+
+// ── 영문/국문 전환용 ──
+import ingredients from '../data/ingredients.json';
+const ingMap = ingredients as Record<string, { slug: string; en: string }>;
+const ingIcons = ((icons as any).ingredients ?? {}) as Record<string, string>;
+/** 재료 영문 이름 */
+export const ingEn = (ko: string) => ingMap[ko]?.en ?? ko;
+/** 재료 아이콘 주소 (없으면 null) */
+export const ingIcon = (ko: string) => (ingIcons[ko] && ingMap[ko] ? `${base}/icons/ingredients/${ingMap[ko].slug}.webp` : null);
+/** 손님 영문 이름 */
+export const custEn = (name: string) => allCustomers.find((c) => c.name === name)?.en ?? name;
