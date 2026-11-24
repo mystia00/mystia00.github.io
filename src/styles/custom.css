@@ -80,3 +80,52 @@ td.rg { white-space: nowrap; }
   border: 1px dashed var(--sl-color-gray-5); border-radius: 8px;
   display: grid; place-items: center; color: var(--sl-color-gray-4); font-size: 0.8rem;
 }
+
+/* 요리 아이콘 칸 */
+.tiles { display: flex; flex-wrap: wrap; gap: 0.6rem 0.5rem; }
+.tiles.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(5.5rem, 1fr)); }
+.tile-wrap[hidden], .dish-group[hidden] { display: none; }
+.dtile { display: flex; flex-direction: column; align-items: center; gap: 0.25rem; width: 5.5rem; text-decoration: none; color: var(--sl-color-white); }
+.dtile:hover .dicon { outline: 2px solid var(--sl-color-accent); }
+.dicon {
+  width: 3rem; height: 3rem; border-radius: 8px; display: grid; place-items: center; overflow: hidden;
+  font-size: 0.8rem; font-weight: 700; background: var(--sl-color-gray-6); color: var(--sl-color-gray-2);
+  border: 1px solid var(--sl-color-gray-5);
+}
+.dicon img { width: 100%; height: 100%; object-fit: contain; image-rendering: pixelated; }
+.dicon.t-0 { box-shadow: inset 0 -4px 0 #c9783a; }
+.dicon.t-1 { box-shadow: inset 0 -4px 0 #b3261e; }
+.dicon.t-2 { box-shadow: inset 0 -4px 0 #4f8fb8; }
+.dicon.t-3 { box-shadow: inset 0 -4px 0 #6f9a4a; }
+.dicon.t-4 { box-shadow: inset 0 -4px 0 #c9a227; }
+.dicon.big { width: 5rem; height: 5rem; font-size: 1.2rem; flex: none; }
+.dname { font-size: 0.75rem; line-height: 1.3; text-align: center; word-break: keep-all; }
+.unv { display: block; font-style: normal; font-size: 0.65rem; color: var(--sl-color-gray-4); }
+
+/* 손님별 추천 요리 */
+.fav-nav { display: flex; flex-wrap: wrap; gap: 0.3rem 0.8rem; font-size: 0.85rem; margin-top: 1rem; }
+.fav-list { border: 1px solid var(--sl-color-hairline); border-radius: 8px; overflow: hidden; }
+.fav-row { display: grid; grid-template-columns: minmax(10rem, 14rem) minmax(0, 1fr); gap: 1rem; padding: 0.9rem; border-bottom: 1px solid var(--sl-color-hairline); margin: 0 !important; scroll-margin-top: 5rem; }
+.fav-row:last-child { border-bottom: 0; }
+.fav-row:target { background: var(--sl-color-accent-low); }
+.fav-who { display: flex; gap: 0.7rem; align-items: center; }
+.fav-who small { display: block; color: var(--sl-color-gray-3); font-size: 0.75rem; }
+.portrait {
+  width: 3.5rem; height: 3.5rem; flex: none; border-radius: 50%; display: grid; place-items: center;
+  background: var(--sl-color-accent-low); color: var(--sl-color-accent-high); font-weight: 700;
+}
+.fav-dishes .tiles { margin: 0; }
+.fav-drinks { margin: 0.5rem 0 0 !important; font-size: 0.8rem; }
+.fav-drinks > span:first-child { color: var(--sl-color-gray-3); margin-right: 0.4rem; }
+@media (max-width: 640px) { .fav-row { grid-template-columns: minmax(0, 1fr); } }
+
+/* 레시피 상세 */
+.recipe { display: flex; gap: 1.2rem; align-items: center; margin-top: 1rem; }
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr)); gap: 0.4rem 1.2rem; margin: 0; flex: 1; }
+.facts div { margin: 0 !important; }
+.facts dt { font-size: 0.75rem; color: var(--sl-color-gray-3); }
+.facts dd { margin: 0; font-weight: 600; }
+.chip.ing { background: var(--sl-color-gray-6); color: var(--sl-color-white); }
+a.chip { text-decoration: none; }
+.hint, .credit { font-size: 0.8rem; color: var(--sl-color-gray-3); }
+.note-unv { font-size: 0.85rem; padding: 0.5rem 0.8rem; border-radius: 6px; background: var(--sl-color-gray-6); }
