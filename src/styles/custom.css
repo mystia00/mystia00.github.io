@@ -1,0 +1,31 @@
+/* 밤 포장마차 테마: 남색 밤하늘 + 초롱불 주황 */
+@import url('https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@400;500;700&display=swap');
+
+:root {
+  --sl-font: 'Noto Sans KR', system-ui, sans-serif;
+  --sl-color-accent-low: #3a1d14;
+  --sl-color-accent: #ff6a3d;
+  --sl-color-accent-high: #ffd2bd;
+  --sl-color-black: #12122a;
+  --sl-color-gray-6: #1c1c3a;
+  --sl-color-gray-5: #2e2d52;
+}
+:root[data-theme='light'] {
+  --sl-color-accent-low: #ffe3d6;
+  --sl-color-accent: #d9481f;
+  --sl-color-accent-high: #6e200a;
+  --sl-color-white: #1b1a33;
+  --sl-color-gray-7: #fbf7ef;
+  --sl-color-bg: #fbf7ef;
+}
+h1, h2, h3, .site-title { font-family: 'Jua', 'Noto Sans KR', sans-serif; font-weight: 400; }
+
+/* 광고 자리 */
+.ad-slot { margin: 2rem 0; min-height: 100px; text-align: center; }
+.ad-slot.empty {
+  border: 2px dashed var(--sl-color-gray-5); border-radius: 12px;
+  display: grid; place-items: center; color: var(--sl-color-gray-3); font-size: 0.85rem;
+}
+
+/* 표를 휴대폰에서 가로 스크롤 */
+.sl-markdown-content table { display: block; overflow-x: auto; white-space: nowrap; }

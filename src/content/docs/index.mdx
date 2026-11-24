@@ -1,0 +1,39 @@
+---
+title: 야작식당 공략노트
+description: 동방야작식당 한국어 공략. 희귀 손님 취향, 요리·술 태그, DLC와 업데이트 정리.
+template: splash
+hero:
+  tagline: 한국어 지원이 없는 동방야작식당, 한국어로 정리한 공략이에요. 손님 취향부터 DLC까지.
+  actions:
+    - text: 초보자 가이드 보기
+      link: /guide/beginner/
+      icon: right-arrow
+      variant: primary
+    - text: 희귀 손님 취향
+      link: /customers/rare/
+---
+
+import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
+import AdSlot from '../../components/AdSlot.astro';
+
+<CardGrid stagger>
+  <Card title="손님 취향" icon="star">
+    희귀 손님마다 좋아하는 요리 태그와 술 태그를 한 표로 정리해요.
+  </Card>
+  <Card title="요리·술 태그" icon="list-format">
+    태그별로 어떤 요리와 술이 맞는지 찾아볼 수 있어요.
+  </Card>
+  <Card title="한·일·영 용어 대조" icon="translate">
+    게임 화면의 일본어·영어 표기와 한국어 이름을 나란히 적어 두었어요.
+  </Card>
+  <Card title="DLC·업데이트" icon="rocket">
+    DLC별 추가 지역과 스위치판 업데이트 소식을 모아요.
+  </Card>
+</CardGrid>
+
+<AdSlot />
+
+## 최신 공략
+
+<LinkCard title="초보자 가이드: 첫 영업 전에 알아둘 것" href="/guide/beginner/" />
+<LinkCard title="DLC와 업데이트 정리" href="/dlc/" />
