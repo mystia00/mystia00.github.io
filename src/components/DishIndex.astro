@@ -1,0 +1,70 @@
+---
+// 요리 전체 목록. 조리 도구, 태그, 이름으로 거를 수 있어요.
+import DishTile from './DishTile.astro';
+import { allDishes, dishName } from '../lib/match';
+const ko = (a: string, b: string) => a.localeCompare(b, 'ko');
+const tools = ['냄비', '그릴', '찜기', '도마', '팬'];
+const tags = [...new Set(allDishes.flatMap((d) => d.tags))].sort(ko);
+const groups = [...new Set(allDishes.map((d) => d.dlc))];
+---
+<div class="finder" data-dish-index>
+  <div class="finder-bar">
+    <input type="search" data-q placeholder="요리 이름 또는 재료" aria-label="요리 이름 또는 재료로 찾기" />
+    <select data-tool aria-label="조리 도구">
+      <option value="">조리 도구 (전체)</option>
+      {tools.map((t) => <option value={t}>{t}</option>)}
+    </select>
+    <select data-tag aria-label="요리 태그">
+      <option value="">요리 태그 (전체)</option>
+      {tags.map((t) => <option value={t}>{t}</option>)}
+    </select>
+    <button type="button" data-reset>초기화</button>
+  </div>
+  <p class="finder-count" data-count>{allDishes.length}개</p>
+  {groups.map((g) => (
+    <section class="dish-group" data-group>
+      <h2>{g}</h2>
+      <div class="tiles grid">
+        {allDishes.filter((d) => d.dlc === g).map((d) => (
+          <div class="tile-wrap" data-name={`${dishName(d)} ${d.en} ${d.ing.join(' ')}`} data-tool={d.tool} data-tags={d.tags.join('|')}>
+            <DishTile dish={d} />
+          </div>
+        ))}
+      </div>
+    </section>
+  ))}
+</div>
+
+<script>
+  for (const root of document.querySelectorAll<HTMLElement>('[data-dish-index]')) {
+    const q = root.querySelector<HTMLInputElement>('[data-q]')!;
+    const tool = root.querySelector<HTMLSelectElement>('[data-tool]')!;
+    const tag = root.querySelector<HTMLSelectElement>('[data-tag]')!;
+    const count = root.querySelector<HTMLElement>('[data-count]')!;
+    const items = [...root.querySelectorAll<HTMLElement>('[data-name]')];
+    const groups = [...root.querySelectorAll<HTMLElement>('[data-group]')];
+    const p = new URLSearchParams(location.search);
+    if (p.get('tag')) tag.value = p.get('tag')!;
+    if (p.get('tool')) tool.value = p.get('tool')!;
+    const apply = () => {
+      const s = q.value.trim().toLowerCase();
+      let n = 0;
+      for (const el of items) {
+        const ok =
+          (!s || el.dataset.name!.toLowerCase().includes(s)) &&
+          (!tool.value || el.dataset.tool === tool.value) &&
+          (!tag.value || el.dataset.tags!.split('|').includes(tag.value));
+        el.hidden = !ok;
+        if (ok) n++;
+      }
+      for (const g of groups) g.hidden = !g.querySelector('[data-name]:not([hidden])');
+      count.textContent = `${n}개`;
+    };
+    for (const el of [q, tool, tag]) el.addEventListener('input', apply);
+    root.querySelector('[data-reset]')!.addEventListener('click', () => {
+      q.value = tool.value = tag.value = '';
+      apply();
+    });
+    apply();
+  }
+</script>
