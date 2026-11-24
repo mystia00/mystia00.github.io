@@ -1,7 +1,7 @@
 ---
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
 import AdSlot from '../../components/AdSlot.astro';
-import { allDishes, dishName, dishIcon, portrait, fans, base, type Dish } from '../../lib/match';
+import { allDishes, dishName, dishIcon, portrait, fans, base, ingIcon, ingEn, custEn, type Dish } from '../../lib/match';
 
 export function getStaticPaths() {
   return allDishes.map((d) => ({ params: { id: d.id }, props: { dish: d } }));
@@ -20,8 +20,9 @@ const custUrl = (n: string) => `${base}/customers/favorites/#c-${encodeURICompon
     tableOfContents: false,
   }}
 >
+  <span hidden data-title-en={dish.en}></span>
   {!dish.ko && (
-    <p class="note-unv">한국어 이름을 게임에서 확인하는 중이에요. 영문 이름: <b>{dish.en}</b></p>
+    <p class="note-unv">한국어 이름 확인 중. 영문 이름: <b>{dish.en}</b></p>
   )}
 
   <div class="recipe">
@@ -37,7 +38,14 @@ const custUrl = (n: string) => `${base}/customers/favorites/#c-${encodeURICompon
   </div>
 
   <h2>재료</h2>
-  <p>{dish.ing.map((i) => <span class="chip ing">{i}</span>)}</p>
+  <div class="ing-list">
+    {dish.ing.map((i) => (
+      <span class="ing-card">
+        {ingIcon(i) ? <img src={ingIcon(i)!} alt="" width="36" height="36" /> : <span class="ing-ph" aria-hidden="true"></span>}
+        <span data-en={ingEn(i)}>{i}</span>
+      </span>
+    ))}
+  </div>
 
   <h2>요리 태그</h2>
   <p>{dish.tags.map((t) => <a class="chip like" href={tagAnchor(t)}>{t}</a>)}</p>
@@ -45,7 +53,7 @@ const custUrl = (n: string) => `${base}/customers/favorites/#c-${encodeURICompon
     <>
       <h3>추가 재료로 넣으면 안 되는 태그</h3>
       <p>{dish.ban.map((t) => <span class="chip dis">{t}</span>)}</p>
-      <p class="hint">이 태그가 붙은 재료를 추가하면 요리가 암흑물질이 돼요.</p>
+      <p class="hint">이 태그 붙은 재료를 추가하면 암흑물질 됨.</p>
     </>
   )}
 
@@ -60,7 +68,7 @@ const custUrl = (n: string) => `${base}/customers/favorites/#c-${encodeURICompon
         <tbody>
           {who.map((w) => (
             <tr>
-              <td class="nm"><a class="who" href={custUrl(w.customer.name)}>{portrait(w.customer.name) && <img class="mini" src={portrait(w.customer.name)!} alt="" width="24" />}{w.customer.name}</a></td>
+              <td class="nm"><a class="who" href={custUrl(w.customer.name)}>{portrait(w.customer.name) && <img class="mini" src={portrait(w.customer.name)!} alt="" width="24" />}<span data-en={custEn(w.customer.name)}>{w.customer.name}</span></a></td>
               <td class="num">{w.hits.length}</td>
               <td>{w.hits.map((t) => <span class="chip like">{t}</span>)}</td>
             </tr>
@@ -68,9 +76,9 @@ const custUrl = (n: string) => `${base}/customers/favorites/#c-${encodeURICompon
         </tbody>
       </table>
     </div>
-  ) : <p>선호 태그 2개 이상 맞는 손님이 없어요. 추가 재료로 태그를 더해 보세요.</p>}
+  ) : <p>선호 태그 2개 이상 맞는 손님 없음. 추가 재료로 태그 더해서 쓰기.</p>}
 
   <AdSlot />
 
-  <p class="credit">레시피 데이터와 아이콘: <a href="https://touhou-mystias-izakaya.fandom.com/wiki/Cuisines">Touhou Mystia's Izakaya Wiki</a>. 게임 그림의 권리는 개발사 二色幽紫蝶에 있어요. 손님 매칭은 이 사이트가 계산한 값이에요.</p>
+  <p class="credit">레시피 데이터와 아이콘: <a href="https://touhou-mystias-izakaya.fandom.com/wiki/Cuisines">Touhou Mystia's Izakaya Wiki</a>. 게임 그림 권리는 개발사 二色幽紫蝶에 있음. 손님 매칭은 이 사이트 자체 계산.</p>
 </StarlightPage>
