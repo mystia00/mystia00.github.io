@@ -1,7 +1,7 @@
 ---
 // 요리 전체 목록. 조리 도구, 태그, 이름으로 거를 수 있어요.
 import DishTile from './DishTile.astro';
-import { allDishes, dishName } from '../lib/match';
+import { allDishes, dishName, ingEn } from '../lib/match';
 const ko = (a: string, b: string) => a.localeCompare(b, 'ko');
 const tools = ['냄비', '그릴', '찜기', '도마', '팬'];
 const tags = [...new Set(allDishes.flatMap((d) => d.tags))].sort(ko);
@@ -9,7 +9,7 @@ const groups = [...new Set(allDishes.map((d) => d.dlc))];
 ---
 <div class="finder" data-dish-index>
   <div class="finder-bar">
-    <input type="search" data-q placeholder="요리 이름 또는 재료" aria-label="요리 이름 또는 재료로 찾기" />
+    <input type="search" data-q placeholder="요리 이름 또는 재료 (영문 가능)" aria-label="요리 이름 또는 재료로 찾기" />
     <select data-tool aria-label="조리 도구">
       <option value="">조리 도구 (전체)</option>
       {tools.map((t) => <option value={t}>{t}</option>)}
@@ -26,7 +26,7 @@ const groups = [...new Set(allDishes.map((d) => d.dlc))];
       <h2>{g}</h2>
       <div class="tiles grid">
         {allDishes.filter((d) => d.dlc === g).map((d) => (
-          <div class="tile-wrap" data-name={`${dishName(d)} ${d.en} ${d.ing.join(' ')}`} data-tool={d.tool} data-tags={d.tags.join('|')}>
+          <div class="tile-wrap" data-name={`${dishName(d)} ${d.en} ${d.ing.join(' ')} ${d.ing.map(ingEn).join(' ')}`.toLowerCase()} data-tool={d.tool} data-tags={d.tags.join('|')}>
             <DishTile dish={d} />
           </div>
         ))}

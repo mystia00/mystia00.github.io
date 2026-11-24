@@ -23,7 +23,7 @@ const short = (n: string) => (n.includes(' ') ? (western.includes(n) ? n.split('
                 ? <img class="portrait" src={portrait(c.name)!} alt="" width="56" height="56" loading="lazy" />
                 : <span class="portrait" aria-hidden="true">{short(c.name)}</span>}
               <div>
-                <b>{c.name}</b>
+                <b data-en={c.en}>{c.name}</b>
                 <small>{c.dlc} · 예산 {c.budget}</small>
               </div>
             </div>

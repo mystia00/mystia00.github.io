@@ -1,15 +1,27 @@
 ---
-// 요리 아이콘 칸. icons.json에 아이콘이 있으면 그림을, 없으면 이름 첫 글자를 보여줘요. 누르면 레시피 상세로 이동해요.
-import { dishName, dishUrl, dishIcon, type Dish } from '../lib/match';
+// 요리 아이콘 칸. 누르면 레시피 상세, 마우스 올리면 재료 미리보기.
+import { dishName, dishUrl, dishIcon, ingIcon, ingEn, type Dish } from '../lib/match';
 interface Props { dish: Dish; size?: 'sm' | 'md'; label?: boolean }
 const { dish, size = 'md', label = true } = Astro.props;
 const name = dishName(dish);
 const tool = dish.tool;
 const icon = dishIcon(dish);
 ---
-<a class={`dtile ${size}`} href={dishUrl(dish)} title={`${name} · ${dish.price}엔 · ${tool}`}>
+<a class={`dtile ${size}`} href={dishUrl(dish)} aria-label={name}>
   <span class={`dicon t-${['냄비','그릴','찜기','도마','팬'].indexOf(tool)}`} aria-hidden="true">
     {icon ? <img src={icon} alt="" loading="lazy" width="48" height="48" /> : name.slice(0, 2)}
   </span>
-  {label && <span class="dname">{name}{!dish.ko && <em class="unv">영문</em>}</span>}
+  {label && <span class="dname"><span data-en={dish.en}>{name}</span>{!dish.ko && <em class="unv">영문</em>}</span>}
+  <span class="tip" aria-hidden="true">
+    <b data-en={dish.en}>{name}</b>
+    <span class="tip-ing">
+      {dish.ing.map((i) => (
+        <span class="ing-item">
+          {ingIcon(i) && <img src={ingIcon(i)!} alt="" loading="lazy" width="20" height="20" />}
+          <span data-en={ingEn(i)}>{i}</span>
+        </span>
+      ))}
+    </span>
+    <small>{dish.price}엔 · {tool}</small>
+  </span>
 </a>
