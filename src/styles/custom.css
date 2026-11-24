@@ -114,8 +114,8 @@ td.rg { white-space: nowrap; }
   width: 3.5rem; height: 3.5rem; flex: none; border-radius: 50%; display: grid; place-items: center;
   background: var(--sl-color-accent-low); color: var(--sl-color-accent-high); font-weight: 700;
 }
-img.portrait { object-fit: cover; object-position: top; border: 1px solid var(--sl-color-gray-5); }
-img.mini { width: 24px; height: 24px; border-radius: 50%; object-fit: cover; object-position: top; vertical-align: middle; margin: 0 0.35rem 0 0 !important; display: inline-block; }
+img.portrait { object-fit: cover; object-position: center; border: 1px solid var(--sl-color-gray-5); }
+img.mini { width: 24px; height: 24px; border-radius: 50%; object-fit: cover; object-position: center; vertical-align: middle; margin: 0 0.35rem 0 0 !important; display: inline-block; }
 .dicon:has(img) { background: transparent; }
 .facts .num { text-align: left; }
 .fav-dishes .tiles { margin: 0; }
@@ -133,3 +133,48 @@ img.mini { width: 24px; height: 24px; border-radius: 50%; object-fit: cover; obj
 a.chip { text-decoration: none; }
 .hint, .credit { font-size: 0.8rem; color: var(--sl-color-gray-3); }
 .note-unv { font-size: 0.85rem; padding: 0.5rem 0.8rem; border-radius: 6px; background: var(--sl-color-gray-6); }
+
+/* 요리 칸 마우스 올리면 재료 미리보기 */
+.dtile { position: relative; }
+.tip {
+  display: none; position: absolute; z-index: 30; bottom: calc(100% + 6px); left: 50%; transform: translateX(-50%);
+  width: max-content; max-width: 15rem; padding: 0.5rem 0.6rem; border-radius: 8px; text-align: left;
+  background: var(--sl-color-gray-7, var(--sl-color-black)); color: var(--sl-color-white);
+  border: 1px solid var(--sl-color-gray-5); box-shadow: 0 6px 18px rgba(0,0,0,.25); pointer-events: none;
+}
+.tip b { display: block; font-size: 0.8rem; margin-bottom: 0.35rem; }
+.tip small { display: block; margin-top: 0.35rem; font-size: 0.7rem; color: var(--sl-color-gray-3); }
+.tip-ing { display: flex; flex-wrap: wrap; gap: 0.25rem 0.5rem; }
+.ing-item { display: inline-flex; align-items: center; gap: 0.2rem; font-size: 0.75rem; white-space: nowrap; }
+.ing-item img { width: 20px; height: 20px; margin: 0 !important; }
+@media (hover: hover) { .dtile:hover .tip { display: block; } }
+.dtile:focus-visible .tip { display: block; }
+
+/* 레시피 상세 재료 */
+.ing-list { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; }
+.ing-card {
+  display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.7rem 0.3rem 0.35rem; margin: 0 !important;
+  border-radius: 8px; background: var(--sl-color-gray-6); border: 1px solid var(--sl-color-gray-5); font-size: 0.9rem;
+}
+.ing-card img { width: 36px; height: 36px; margin: 0 !important; }
+.ing-ph { width: 36px; height: 36px; border-radius: 6px; background: var(--sl-color-gray-5); }
+
+/* 영문/국문 전환 */
+.lang-sw { display: inline-flex; border: 1px solid var(--sl-color-gray-5); border-radius: 6px; overflow: hidden; margin-inline-end: 0.5rem; flex: none; }
+.lang-sw button {
+  border: 0; background: transparent; color: var(--sl-color-gray-3); font: inherit; font-size: 0.75rem; font-weight: 600;
+  padding: 0.25rem 0.55rem; cursor: pointer;
+}
+.lang-sw button[aria-pressed='true'] { background: var(--sl-color-accent); color: #fff; }
+body > .lang-sw { position: fixed; top: 0.6rem; right: 0.6rem; z-index: 50; background: var(--sl-color-bg); }
+[data-lang='en'] .unv, [data-lang='en'] .note-unv { display: none; }
+
+/* 맨 위로 */
+.to-top {
+  position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: 40; width: 2.75rem; height: 2.75rem; border-radius: 50%;
+  display: grid; place-items: center; border: 1px solid var(--sl-color-gray-5); cursor: pointer;
+  background: var(--sl-color-accent); color: #fff; box-shadow: 0 4px 14px rgba(0,0,0,.25);
+  opacity: 0; visibility: hidden; transform: translateY(8px); transition: opacity .2s, transform .2s, visibility .2s;
+}
+.to-top.show { opacity: 1; visibility: visible; transform: none; }
+.to-top:hover { filter: brightness(1.1); }
