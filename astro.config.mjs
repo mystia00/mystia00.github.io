@@ -35,6 +35,8 @@ export default defineConfig({
         {
           label: '데이터',
           items: [
+            { label: '손님별 추천 요리', slug: 'customers/favorites' },
+            { label: '요리 레시피 전체', slug: 'dishes' },
             { label: '희귀 손님 전체표', slug: 'customers/rare' },
             { label: '요리 태그별 손님', slug: 'tags/food' },
             { label: '술 태그별 손님', slug: 'tags/drink' },
