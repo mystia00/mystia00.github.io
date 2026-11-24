@@ -1,0 +1,75 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import AdSlot from '../../components/AdSlot.astro';
+import { allDishes, dishName, fans, base, type Dish } from '../../lib/match';
+
+export function getStaticPaths() {
+  return allDishes.map((d) => ({ params: { id: d.id }, props: { dish: d } }));
+}
+const { dish } = Astro.props as { dish: Dish };
+const name = dishName(dish);
+const who = fans(dish);
+const tagAnchor = (t: string) => `${base}/tags/food/#t-${t.replace(/\s+/g, '-')}`;
+const custUrl = (n: string) => `${base}/customers/favorites/#c-${encodeURIComponent(n)}`;
+---
+<StarlightPage
+  frontmatter={{
+    title: name,
+    description: `동방야작식당 ${name} 레시피: 재료 ${dish.ing.join(', ')} / ${dish.tool} / ${dish.price}엔. 태그와 좋아하는 손님.`,
+    tableOfContents: false,
+  }}
+>
+  {!dish.ko && (
+    <p class="note-unv">한국어 이름을 게임에서 확인하는 중이에요. 영문 이름: <b>{dish.en}</b></p>
+  )}
+
+  <div class="recipe">
+    <div class={`dicon big t-${['냄비','그릴','찜기','도마','팬'].indexOf(dish.tool)}`} aria-hidden="true">
+      {dish.icon ? <img src={`${base}/icons/dishes/${dish.id}.png`} alt="" /> : name.slice(0, 2)}
+    </div>
+    <dl class="facts">
+      <div><dt>가격</dt><dd class="num">{dish.price}엔</dd></div>
+      <div><dt>레벨</dt><dd>{dish.lv}</dd></div>
+      <div><dt>조리 도구</dt><dd>{dish.tool}</dd></div>
+      <div><dt>수록</dt><dd>{dish.dlc}</dd></div>
+    </dl>
+  </div>
+
+  <h2>재료</h2>
+  <p>{dish.ing.map((i) => <span class="chip ing">{i}</span>)}</p>
+
+  <h2>요리 태그</h2>
+  <p>{dish.tags.map((t) => <a class="chip like" href={tagAnchor(t)}>{t}</a>)}</p>
+  {dish.ban.length > 0 && (
+    <>
+      <h3>추가 재료로 넣으면 안 되는 태그</h3>
+      <p>{dish.ban.map((t) => <span class="chip dis">{t}</span>)}</p>
+      <p class="hint">이 태그가 붙은 재료를 추가하면 요리가 암흑물질이 돼요.</p>
+    </>
+  )}
+
+  <h2>해금 방법</h2>
+  <p>{dish.unlock}</p>
+
+  <h2>좋아하는 손님</h2>
+  {who.length ? (
+    <div class="finder-scroll">
+      <table class="tagidx">
+        <thead><tr><th>손님</th><th class="num">맞는 태그</th><th>태그</th></tr></thead>
+        <tbody>
+          {who.map((w) => (
+            <tr>
+              <td class="nm"><a href={custUrl(w.customer.name)}>{w.customer.name}</a></td>
+              <td class="num">{w.hits.length}</td>
+              <td>{w.hits.map((t) => <span class="chip like">{t}</span>)}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  ) : <p>선호 태그 2개 이상 맞는 손님이 없어요. 추가 재료로 태그를 더해 보세요.</p>}
+
+  <AdSlot />
+
+  <p class="credit">레시피 데이터: <a href="https://touhou-mystias-izakaya.fandom.com/wiki/Cuisines">Touhou Mystia's Izakaya Wiki</a> (CC BY-SA)를 바탕으로 정리. 손님 매칭은 이 사이트가 계산한 값이에요.</p>
+</StarlightPage>
