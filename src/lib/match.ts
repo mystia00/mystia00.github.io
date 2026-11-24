@@ -1,6 +1,7 @@
 // 손님 취향과 요리 태그를 맞춰 보는 계산. 데이터 파일만 바뀌면 전부 자동으로 다시 계산돼요.
 import customers from '../data/customers.json';
 import dishes from '../data/dishes.json';
+import icons from '../data/icons.json';
 
 export type Customer = (typeof customers)[number] & { special?: boolean };
 export type Dish = (typeof dishes)[number] & { icon?: string };
@@ -38,3 +39,10 @@ export function fans(d: Dish): { customer: Customer; hits: string[] }[] {
 
 export const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 export const dishUrl = (d: Dish) => `${base}/dishes/${d.id}/`;
+
+const dishIcons = icons.dishes as Record<string, string>;
+const portraits = icons.customers as Record<string, string>;
+/** 요리 아이콘 주소 (없으면 null) */
+export const dishIcon = (d: Dish) => (dishIcons[d.id] ? `${base}/icons/dishes/${d.id}.webp` : null);
+/** 손님 초상 주소 (없으면 null) */
+export const portrait = (name: string) => (portraits[name] ? `${base}/icons/customers/${encodeURIComponent(name)}.webp` : null);
