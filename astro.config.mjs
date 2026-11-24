@@ -19,18 +19,21 @@ export default defineConfig({
       locales: { root: { label: '한국어', lang: 'ko' } },
       customCss: ['./src/styles/custom.css'],
       lastUpdated: true,
-      head: ADSENSE_ID
-        ? [
-            {
-              tag: 'script',
-              attrs: {
-                async: true,
-                src: `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_ID}`,
-                crossorigin: 'anonymous',
+      head: [
+        { tag: 'script', attrs: { src: '/site.js', defer: true } },
+        ...(ADSENSE_ID
+          ? [
+              {
+                tag: 'script',
+                attrs: {
+                  async: true,
+                  src: `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_ID}`,
+                  crossorigin: 'anonymous',
+                },
               },
-            },
-          ]
-        : [],
+            ]
+          : []),
+      ],
       sidebar: [
         {
           label: '데이터',
