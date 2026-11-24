@@ -1,0 +1,115 @@
+---
+// 희귀 손님 검색표. 데이터는 src/data/customers.json 하나만 고치면 돼요.
+import data from '../data/customers.json';
+
+interface Props { compact?: boolean }
+const { compact = false } = Astro.props;
+
+const ko = (a: string, b: string) => a.localeCompare(b, 'ko');
+const regions = [...new Set(data.map((c) => c.region))];
+const foodTags = [...new Set(data.flatMap((c) => [...c.like, ...c.dislike]))].sort(ko);
+const drinkTags = [...new Set(data.flatMap((c) => c.drink))].sort(ko);
+---
+
+<div class="finder" data-finder>
+  <div class="finder-bar">
+    <input type="search" data-q placeholder="손님 이름" aria-label="손님 이름으로 찾기" />
+    <select data-food aria-label="좋아하는 요리 태그">
+      <option value="">요리 태그 (전체)</option>
+      {foodTags.map((t) => <option value={t}>{t}</option>)}
+    </select>
+    <select data-drink aria-label="술 태그">
+      <option value="">술 태그 (전체)</option>
+      {drinkTags.map((t) => <option value={t}>{t}</option>)}
+    </select>
+    <select data-region aria-label="지역">
+      <option value="">지역 (전체)</option>
+      {regions.map((r) => <option value={r}>{r}</option>)}
+    </select>
+    <button type="button" data-reset>초기화</button>
+  </div>
+  <p class="finder-count" data-count>{data.length}명</p>
+
+  <div class="finder-scroll">
+    <table class="cust">
+      <thead>
+        <tr>
+          <th>손님</th>
+          <th>지역</th>
+          <th>좋아하는 요리 태그</th>
+          <th>싫어하는 요리 태그</th>
+          <th>술 태그</th>
+          {!compact && <th class="num">예산</th>}
+        </tr>
+      </thead>
+      <tbody>
+        {data.map((c) => (
+          <tr
+            data-name={c.name}
+            data-region={c.region}
+            data-like={c.like.join('|')}
+            data-drink={c.drink.join('|')}
+          >
+            <td class="nm">
+              {c.name}
+              {c.special && <span class="badge">특별</span>}
+            </td>
+            <td class="rg">
+              {c.region}
+              <span class="dlc">{c.dlc}</span>
+            </td>
+            <td>{c.like.map((t) => <span class="chip like" data-t={t}>{t}</span>)}</td>
+            <td>{c.dislike.map((t) => <span class="chip dis">{t}</span>)}</td>
+            <td>{c.drink.map((t) => <span class="chip drk" data-t={t}>{t}</span>)}</td>
+            {!compact && <td class="num">{c.budget}</td>}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+    <p class="finder-empty" data-empty hidden>조건에 맞는 손님이 없어요.</p>
+  </div>
+</div>
+
+<script>
+  for (const root of document.querySelectorAll<HTMLElement>('[data-finder]')) {
+    const q = root.querySelector<HTMLInputElement>('[data-q]')!;
+    const food = root.querySelector<HTMLSelectElement>('[data-food]')!;
+    const drink = root.querySelector<HTMLSelectElement>('[data-drink]')!;
+    const region = root.querySelector<HTMLSelectElement>('[data-region]')!;
+    const count = root.querySelector<HTMLElement>('[data-count]')!;
+    const empty = root.querySelector<HTMLElement>('[data-empty]')!;
+    const rows = [...root.querySelectorAll<HTMLTableRowElement>('tbody tr')];
+
+    const params = new URLSearchParams(location.search);
+    if (params.get('food')) food.value = params.get('food')!;
+    if (params.get('drink')) drink.value = params.get('drink')!;
+    if (params.get('region')) region.value = params.get('region')!;
+
+    const apply = () => {
+      const name = q.value.trim();
+      let shown = 0;
+      for (const tr of rows) {
+        const ok =
+          (!name || tr.dataset.name!.includes(name)) &&
+          (!food.value || tr.dataset.like!.split('|').includes(food.value)) &&
+          (!drink.value || tr.dataset.drink!.split('|').includes(drink.value)) &&
+          (!region.value || tr.dataset.region === region.value);
+        tr.hidden = !ok;
+        if (ok) shown++;
+        for (const chip of tr.querySelectorAll<HTMLElement>('[data-t]')) {
+          const t = chip.dataset.t;
+          chip.classList.toggle('hit', t === food.value || t === drink.value);
+        }
+      }
+      count.textContent = `${shown}명`;
+      empty.hidden = shown > 0;
+    };
+
+    for (const el of [q, food, drink, region]) el.addEventListener('input', apply);
+    root.querySelector('[data-reset]')!.addEventListener('click', () => {
+      q.value = food.value = drink.value = region.value = '';
+      apply();
+    });
+    apply();
+  }
+</script>
