@@ -3,6 +3,9 @@
 
 :root {
   --sl-font: 'Noto Sans KR', system-ui, sans-serif;
+}
+/* 어두운 모드 */
+:root[data-theme='dark'] {
   --sl-color-accent-low: #3a1d14;
   --sl-color-accent: #ff6a3d;
   --sl-color-accent-high: #ffd2bd;
@@ -10,13 +13,11 @@
   --sl-color-gray-6: #1c1c3a;
   --sl-color-gray-5: #2e2d52;
 }
+/* 밝은 모드 */
 :root[data-theme='light'] {
   --sl-color-accent-low: #ffe3d6;
-  --sl-color-accent: #d9481f;
+  --sl-color-accent: #c63f17;
   --sl-color-accent-high: #6e200a;
-  --sl-color-white: #1b1a33;
-  --sl-color-gray-7: #fbf7ef;
-  --sl-color-bg: #fbf7ef;
 }
 h1, h2, h3, .site-title { font-family: 'Jua', 'Noto Sans KR', sans-serif; font-weight: 400; }
 
