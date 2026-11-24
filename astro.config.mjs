@@ -43,6 +43,10 @@ export default defineConfig({
           ],
         },
         {
+          label: '이벤트 · 보스전',
+          autogenerate: { directory: 'events' },
+        },
+        {
           label: '공략',
           items: [
             { label: '영업 기본기', slug: 'guide/beginner' },
