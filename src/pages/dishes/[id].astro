@@ -1,7 +1,7 @@
 ---
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
 import AdSlot from '../../components/AdSlot.astro';
-import { allDishes, dishName, fans, base, type Dish } from '../../lib/match';
+import { allDishes, dishName, dishIcon, portrait, fans, base, type Dish } from '../../lib/match';
 
 export function getStaticPaths() {
   return allDishes.map((d) => ({ params: { id: d.id }, props: { dish: d } }));
@@ -9,6 +9,7 @@ export function getStaticPaths() {
 const { dish } = Astro.props as { dish: Dish };
 const name = dishName(dish);
 const who = fans(dish);
+const icon = dishIcon(dish);
 const tagAnchor = (t: string) => `${base}/tags/food/#t-${t.replace(/\s+/g, '-')}`;
 const custUrl = (n: string) => `${base}/customers/favorites/#c-${encodeURIComponent(n)}`;
 ---
@@ -25,7 +26,7 @@ const custUrl = (n: string) => `${base}/customers/favorites/#c-${encodeURICompon
 
   <div class="recipe">
     <div class={`dicon big t-${['냄비','그릴','찜기','도마','팬'].indexOf(dish.tool)}`} aria-hidden="true">
-      {dish.icon ? <img src={`${base}/icons/dishes/${dish.id}.png`} alt="" /> : name.slice(0, 2)}
+      {icon ? <img src={icon} alt="" width="80" height="80" /> : name.slice(0, 2)}
     </div>
     <dl class="facts">
       <div><dt>가격</dt><dd class="num">{dish.price}엔</dd></div>
@@ -59,7 +60,7 @@ const custUrl = (n: string) => `${base}/customers/favorites/#c-${encodeURICompon
         <tbody>
           {who.map((w) => (
             <tr>
-              <td class="nm"><a href={custUrl(w.customer.name)}>{w.customer.name}</a></td>
+              <td class="nm"><a class="who" href={custUrl(w.customer.name)}>{portrait(w.customer.name) && <img class="mini" src={portrait(w.customer.name)!} alt="" width="24" />}{w.customer.name}</a></td>
               <td class="num">{w.hits.length}</td>
               <td>{w.hits.map((t) => <span class="chip like">{t}</span>)}</td>
             </tr>
@@ -71,5 +72,5 @@ const custUrl = (n: string) => `${base}/customers/favorites/#c-${encodeURICompon
 
   <AdSlot />
 
-  <p class="credit">레시피 데이터: <a href="https://touhou-mystias-izakaya.fandom.com/wiki/Cuisines">Touhou Mystia's Izakaya Wiki</a> (CC BY-SA)를 바탕으로 정리. 손님 매칭은 이 사이트가 계산한 값이에요.</p>
+  <p class="credit">레시피 데이터와 아이콘: <a href="https://touhou-mystias-izakaya.fandom.com/wiki/Cuisines">Touhou Mystia's Izakaya Wiki</a>. 게임 그림의 권리는 개발사 二色幽紫蝶에 있어요. 손님 매칭은 이 사이트가 계산한 값이에요.</p>
 </StarlightPage>
