@@ -14,7 +14,7 @@ export default defineConfig({
   integrations: [
     starlight({
       title: '야작식당 공략노트',
-      description: '동방야작식당 한국어 공략: 희귀 손님 취향, 요리·술 태그, DLC 정리',
+      description: '동방야작식당 희귀 손님 태그 검색, 요리·술 태그 정리, DLC 정리',
       defaultLocale: 'root',
       locales: { root: { label: '한국어', lang: 'ko' } },
       customCss: ['./src/styles/custom.css'],
@@ -33,29 +33,22 @@ export default defineConfig({
         : [],
       sidebar: [
         {
-          label: '시작하기',
+          label: '데이터',
           items: [
-            { label: '초보자 가이드', slug: 'guide/beginner' },
-            { label: '용어 대조표 (한·일·영)', slug: 'guide/terms' },
+            { label: '희귀 손님 전체표', slug: 'customers/rare' },
+            { label: '요리 태그별 손님', slug: 'tags/food' },
+            { label: '술 태그별 손님', slug: 'tags/drink' },
           ],
         },
         {
-          label: '손님',
-          items: [{ label: '희귀 손님 취향 정리', slug: 'customers/rare' }],
-        },
-        {
-          label: '태그',
+          label: '공략',
           items: [
-            { label: '요리 태그', slug: 'tags/food' },
-            { label: '술 태그', slug: 'tags/drink' },
+            { label: '영업 기본기', slug: 'guide/beginner' },
+            { label: 'DLC 정리', slug: 'dlc' },
           ],
         },
         {
-          label: 'DLC·업데이트',
-          items: [{ label: 'DLC와 업데이트 정리', slug: 'dlc' }],
-        },
-        {
-          label: '사이트 정보',
+          label: '사이트',
           items: [
             { label: '소개', slug: 'about' },
             { label: '개인정보처리방침', slug: 'privacy' },
