@@ -1,15 +1,15 @@
 ---
-// 요리 아이콘 칸. 아이콘 이미지가 있으면(public/icons/dishes/<id>.png 를 넣고 dishes.json에 "icon": true)
-// 그림을, 없으면 이름 첫 글자를 보여줘요. 누르면 레시피 상세로 이동해요.
-import { dishName, dishUrl, base, type Dish } from '../lib/match';
+// 요리 아이콘 칸. icons.json에 아이콘이 있으면 그림을, 없으면 이름 첫 글자를 보여줘요. 누르면 레시피 상세로 이동해요.
+import { dishName, dishUrl, dishIcon, type Dish } from '../lib/match';
 interface Props { dish: Dish; size?: 'sm' | 'md'; label?: boolean }
 const { dish, size = 'md', label = true } = Astro.props;
 const name = dishName(dish);
 const tool = dish.tool;
+const icon = dishIcon(dish);
 ---
 <a class={`dtile ${size}`} href={dishUrl(dish)} title={`${name} · ${dish.price}엔 · ${tool}`}>
   <span class={`dicon t-${['냄비','그릴','찜기','도마','팬'].indexOf(tool)}`} aria-hidden="true">
-    {dish.icon ? <img src={`${base}/icons/dishes/${dish.id}.png`} alt="" loading="lazy" /> : name.slice(0, 2)}
+    {icon ? <img src={icon} alt="" loading="lazy" width="48" height="48" /> : name.slice(0, 2)}
   </span>
   {label && <span class="dname">{name}{!dish.ko && <em class="unv">영문</em>}</span>}
 </a>
