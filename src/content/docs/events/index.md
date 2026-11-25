@@ -5,6 +5,10 @@ sidebar:
   order: 0
 ---
 
+<span hidden data-title-en="Events & Boss Fights"></span>
+
+<div class="ko-only">
+
 스토리 대결·보스전을 제일 편하게 깨는 방법만 모음. 각 페이지 맨 위 **꿀팁 요약**만 봐도 클리어 가능. 스포일러 있음.
 
 | 시점 | 이벤트 | 이것만 기억 |
@@ -16,3 +20,20 @@ sidebar:
 | DLC 3 | [하쿠레이 예대제](/events/dlc3-festival/) | 코스즈 고정. 콤보 안 끊기면 압살 |
 | DLC 4 | [플랑드르 디펜스](/events/dlc4-flandre/) | 1열 파란 요정, 중앙 유카, 노란 요정 도배 |
 | DLC 5 | [미즈치 체포작전](/events/dlc5-mizuchi/) | 취향 안 맞는 주문 = 미즈치. 확실할 때만 열매 |
+
+</div>
+<div class="en-only">
+
+The easiest way through every story contest and boss fight. The **Quick tips** at the top of each page are enough to clear it. Spoilers ahead.
+
+| When | Event | Remember this |
+|---|---|---|
+| Main story · Hakugyokurou | [Youmu's Trials · Yuyuko Finale](/events/hakugyokurou/) | Repeat 2 pricey dishes. Stockpile dishes for Yuyuko in advance |
+| Main story · Bamboo Forest | [Kaguya vs Mokou Recipe Battle](/events/recipe-battle/) | Can't lose. Only put the side you want on the menu |
+| DLC 1 | [Toutetsu Yuuma](/events/dlc1-yuuma/) | Serve no/low alcohol. Put off high-alcohol orders as long as possible |
+| DLC 2 | [Bizarre Cooking Contest](/events/dlc2-contest/) | Prep 6 sets of Hourai Branch + Oni Killer → feed them 6 times in phase 3 |
+| DLC 3 | [Hakurei Grand Festival](/events/dlc3-festival/) | Always pick Kosuzu. Keep the combo and you win easily |
+| DLC 4 | [Flandre Defense](/events/dlc4-flandre/) | Blue fairies in row 1, Yuka in the middle, yellow fairies for damage |
+| DLC 5 | [Catching Mizuchi](/events/dlc5-mizuchi/) | An order that doesn't fit the guest = Mizuchi. Use the berries only when sure |
+
+</div>

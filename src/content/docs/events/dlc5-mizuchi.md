@@ -5,6 +5,10 @@ sidebar:
   order: 7
 ---
 
+<span hidden data-title-en="DLC 5 Boss — Catching Mizuchi"></span>
+
+<div class="ko-only">
+
 > DLC 5 스토리 스포일러 있음.
 
 ## 꿀팁 요약
@@ -46,3 +50,50 @@ sidebar:
 | 치 | 주기적으로 빙의 시도, 리듬 게임 실패 시 분위기 최고조 상실·방향 반전 등 | 미즈치가 스펠 카드 모션 취하면 리듬 게임 준비. 별로 안 어려움 |
 
 클리어하면 유카리가 특별 손님으로 해금됨.
+
+</div>
+<div class="en-only">
+
+> Spoilers for the DLC 5 story.
+
+## Quick tips
+
+- **An order that doesn't match that guest's tastes = Mizuchi.** Keep the [rare guest table](/customers/rare/) open and compare right away
+- **5 berries; feed her 3 to clear** → you can miss twice. Only use one when you're sure
+- If you're unsure, just serve normally. **Every satisfied real guest adds time**
+- The first attempt seals Mizuchi's powers, so there are no penalties and it's easy. The hard part is the rematch (curse) mode
+
+**How to start**: finish 3 Lunar Capital trainings → Yukari appears at Hakurei Shrine → the operation begins.
+
+## Rules
+
+| Item | Details |
+|---|---|
+| Goal | Among the flood of rare guests, feed the hidden **Mizuchi** **Puyo-Puyo berries 3 times** |
+| Berries | Mima brings **5**, and that's all |
+| Time | Grows a little each time you satisfy a real rare guest |
+| Failure | Serving Mizuchi without a berry after she has shown anything odd → **automatic worst rating + 10% less time** |
+
+## How to spot Mizuchi
+
+She shows the same 3 glitches you saw in training.
+
+1. **Food taste glitch**: asks for a dish with a tag that guest normally dislikes
+2. **Drink taste glitch**: asks for a drink that doesn't match the guest's usual taste
+3. **Dialogue/rating glitch**: lines or rating reactions differ from usual
+
+→ Compare with the guest table as soon as the order shows. If anything is off, get the berry dish ready.
+
+## Rematch: curse mode
+
+After clearing, turn on curses at the Lunar Capital spire to retry.
+
+| Curse | Effect | How to handle |
+|---|---|---|
+| Greed | Ingredients used in cooking are sealed for 20 s (berries excepted) | **The most dangerous.** Serve only 1–2 ingredient dishes (3 at most). No piling on toppings, no fancy dishes |
+| Anger | Patience Freeze disabled, patience drains 250% faster | Looks fast, but serving once resets it. Stay calm |
+| Ignorance | Regular possession attempts; failing the rhythm game loses Climax, reverses controls, etc. | When Mizuchi makes the spell card pose, get ready for the rhythm game. Not very hard |
+
+Clearing it unlocks Yukari as a special guest.
+
+</div>

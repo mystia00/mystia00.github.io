@@ -5,6 +5,10 @@ sidebar:
   order: 6
 ---
 
+<span hidden data-title-en="DLC 4 Boss — Flandre Defense"></span>
+
+<div class="ko-only">
+
 > DLC 4 스토리 스포일러 있음.
 
 ## 꿀팁 요약
@@ -62,3 +66,64 @@ sidebar:
 4. 손님들 아주 만족 2번씩 띄워서 필살기 돌리기. 거대 플랑드르 나오면 필살기 아껴뒀다 터뜨리기
 
 클리어 후 홍마관 지하실 문이 열림. 방 꾸미기 + 재도전 가능.
+
+</div>
+<div class="en-only">
+
+> Spoilers for the DLC 4 story.
+
+## Quick tips
+
+- Default setup: **a wall of blue fairies in row 1 (front) + yellow fairies everywhere behind.** Use red fairies only early on, then swap them out
+- **Put Yuka in the middle lane first.** With 4 sunflowers she makes P on her own and also hits the lanes next to her
+- Guests get their **finisher after 2 "very satisfied" ratings.** Pre-cook their recommended dishes and drinks and you can spam finishers
+- Shinmyoumaru and Seija **go together in a back corner**. Medicine goes in lanes 2–3
+- Kicking a guest out to move them resets every aura and sunflower → **your first placement matters**
+
+### Best dishes
+
+<div class="tiles evt-tiles not-content"><a class="dtile" href="/dishes/udumbara-cake/"><span class="dicon"><img src="/icons/dishes/udumbara-cake.webp" alt="" width="48" height="48" loading="lazy" /></span><span class="dname">우담화 떡</span></a><a class="dtile" href="/dishes/faint-dream/"><span class="dicon"><img src="/icons/dishes/faint-dream.webp" alt="" width="48" height="48" loading="lazy" /></span><span class="dname">그윽한 꿈</span></a><a class="dtile" href="/dishes/lotus-fish-lamps/"><span class="dicon"><img src="/icons/dishes/lotus-fish-lamps.webp" alt="" width="48" height="48" loading="lazy" /></span><span class="dname">연못 한 잔</span></a><a class="dtile" href="/dishes/mochi/"><span class="dicon"><img src="/icons/dishes/mochi.webp" alt="" width="48" height="48" loading="lazy" /></span><span class="dname">찹쌀떡</span></a><a class="dtile" href="/dishes/shirayuki/"><span class="dicon"><img src="/icons/dishes/shirayuki.webp" alt="" width="48" height="48" loading="lazy" /></span><span class="dname">백설</span></a><a class="dtile" href="/dishes/niten-ichiryu/"><span class="dicon"><img src="/icons/dishes/niten-ichiryu.webp" alt="" width="48" height="48" loading="lazy" /></span><span class="dname">이천일류</span></a><a class="dtile" href="/dishes/sichuan-boiled-fish/"><span class="dicon"><img src="/icons/dishes/sichuan-boiled-fish.webp" alt="" width="48" height="48" loading="lazy" /></span><span class="dname">생선찜</span></a><a class="dtile" href="/dishes/pork-rice-ball/"><span class="dicon"><img src="/icons/dishes/pork-rice-ball.webp" alt="" width="48" height="48" loading="lazy" /></span><span class="dname">구운 돼지고기 주먹밥</span></a><a class="dtile" href="/dishes/okonomiyaki/"><span class="dicon"><img src="/icons/dishes/okonomiyaki.webp" alt="" width="48" height="48" loading="lazy" /></span><span class="dname">오코노미야키</span></a><a class="dtile" href="/dishes/instant-death/"><span class="dicon"><img src="/icons/dishes/instant-death.webp" alt="" width="48" height="48" loading="lazy" /></span><span class="dname">일격☆필살</span></a><a class="dtile" href="/dishes/fried-cicada-sloughs/"><span class="dicon"><img src="/icons/dishes/fried-cicada-sloughs.webp" alt="" width="48" height="48" loading="lazy" /></span><span class="dname">허물 볶음</span></a><a class="dtile" href="/dishes/power-soup/"><span class="dicon"><img src="/icons/dishes/power-soup.webp" alt="" width="48" height="48" loading="lazy" /></span><span class="dname">고깃국</span></a><a class="dtile" href="/dishes/sakura-pudding/"><span class="dicon"><img src="/icons/dishes/sakura-pudding.webp" alt="" width="48" height="48" loading="lazy" /></span><span class="dname">벚꽃 푸딩</span></a></div>
+
+**How to start**: it works with bond Lv 5 on just 3 of the 6 Garden of the Sun and Shining Needle Castle guests, but **raising all 6 makes it far easier**. After Lv 5 you also have to press the separate "Invite to play" button for it to count.
+
+## Rules
+
+| Item | Details |
+|---|---|
+| Board | Place fairies and guests on 3×4 tables and stop Flandres coming from the right |
+| Currency | Defeating Flandres gives **P**. Spend it on placement and Patchouli's magic support |
+| HP | Satisfaction hearts = HP. Serving food heals |
+| Tables | Destroyed when HP hits 0 or a Flandre reaches an empty table. They come back after a while |
+| Enemies | 4 kinds by emotion. Giant Flandres split into 4 small ones across 4 lanes when beaten |
+| Support | Ultimate cooking tools provided, Climax always on |
+| Win | After the top gauge hits 100%, beat every remaining Flandre |
+
+## Fairies
+
+| Fairy | Cost | HP | Use |
+|---|---|---|---|
+| Red fairy | 1P | 300 | 20 damage in a line. Early stopgap |
+| Yellow fairy | 2P | 300 | 50 damage in a line. **Main damage** |
+| Blue fairy | 2P | 1,500 | No attack, heals 10 per second. **Row 1 wall** |
+
+## Rare guests (placement + recommended dishes)
+
+| Guest | Cost | Traits | Placement | Recommended dishes / drinks |
+|---|---|---|---|---|
+| Yuka Kazami | 35P | A sunflower each time she eats (max 4); per sunflower −10% cooking time and 1P every 10 s; hits neighboring lanes. Finisher: 500 damage on 3 lanes + stun | **Middle lane first** | Udumbara Cake, Faint Dream, Lotus Fish Lamps / Godfather, Umeshu |
+| Sukuna Shinmyoumaru | 30P | Hits the leftmost enemy in any lane; from Lv 2 stuns + 1P per hit. Finisher: invincible + 2× attack speed | Only 150 HP, so **back corner** | Mochi, Shirayuki (Niten Ichiryu, Sichuan Boiled Fish when she wants Aura-Bursting) / Cassia Wine, Ramune, Daughter of the Sea |
+| Aya Shameimaru | 20P | Whirlwind along a line, slows from Lv 2. Finisher: knockback + 200 damage | Anywhere. She reliably holds her own lane | Pork Rice Ball, Okonomiyaki / Tengu Tango, Divine Wheat |
+| Kagerou Imaizumi | 20P | Melee; eating meat triples her attack for 10 s. Finisher: 500 area explosion | **Front-line** bruiser | Pork Rice Ball, Instant☆Death / Sangetsusei |
+| Seija Kijin | 20P | Dodges melee enemies; takes double damage with no guest next to her | **Alone in a corner** (next to Shinmyoumaru is fine) | Fried Cicada Sloughs, Power Soup, Sichuan Boiled Fish / Divine Wheat |
+| Medicine Melancholy | 10P | 1,000 HP, poisons around her when caught. Finisher: 3×3 poison field | Front tank in **lanes 2–3** | Sakura Pudding (+ mushroom, toon), Okonomiyaki / Fruity Highball, Scarlet Tea |
+
+## How it goes
+
+1. Hold with red fairies at the start while collecting P
+2. At 35 P, **put Yuka in the middle → feed her right away to get 4 sunflowers**
+3. Blue fairies in row 1, then swap in and expand yellow fairies behind them
+4. Get each guest to "very satisfied" twice to cycle finishers. Save finishers for Giant Flandres
+
+After clearing, the Scarlet Devil Mansion basement opens: room decorating + rematches.
+
+</div>

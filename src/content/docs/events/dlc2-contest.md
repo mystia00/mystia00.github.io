@@ -5,6 +5,10 @@ sidebar:
   order: 4
 ---
 
+<span hidden data-title-en="DLC 2 Bizarre Cooking Contest"></span>
+
+<div class="ko-only">
+
 > DLC 2 스토리 스포일러 있음.
 
 ## 꿀팁 요약
@@ -60,3 +64,63 @@ sidebar:
 추가 꿀팁:
 - 공개된 태그 4개가 딱 맞는 요리는 도감에 최소 하나 있음. 태그 다 안 열려도 추리 가능
 - 분신 상대하다 보면 시간 빠듯함 → **던지기 버프로 시간 멈추는 거 꼭 유지**
+
+</div>
+<div class="en-only">
+
+> Spoilers for the DLC 2 story.
+
+## Quick tips
+
+- **Must-have prep before entering**: 6× Hourai Branch (or Mooncake) + 6× Oni Killer. This is the key to clearing phase 3
+- Bring **5 sets of the fastest cooking tools**. Satisfaction bonuses like Night Sparrow tools are all disabled, so they're useless
+- Phase 1: **keep throwing any cheap Lv 2 dish**. No punishment cards
+- Phase 2: keep the rare guest table open on the side and **only go for 4 points (red)**. If the required tag is one the guest dislikes, wait until it changes
+- Phase 3: give the stunned Koishi **Hourai Branch + Oni Killer = 9 points**. 4 times → stun again → 2 times = 54 points, cleared
+
+### Best dishes
+
+<div class="tiles evt-tiles not-content"><a class="dtile" href="/dishes/hourai-branch/"><span class="dicon"><img src="/icons/dishes/hourai-branch.webp" alt="" width="48" height="48" loading="lazy" /></span><span class="dname">봉래의 옥의 가지</span></a></div>
+
+**How to enter**: max bond with the 6 Former Hell and Palace of the Earth Spirits guests → sign up through Orin.
+
+## Phase 1 — 20 hidden orders
+
+- Regular guests' orders are all hidden. Ignore the menu and **just go by the guest's liked tags**
+- 3 points or more counts as satisfied. Done after 20 guests
+- There are no punishment cards, so **throwing anything fast beats matching each one**
+
+## Phase 2 — 10 rare guests (the hardest part)
+
+Break any rule and you get a punishment card right away.
+
+- The **required tag**, which changes every 30 s, must be on the dish
+- **Extra ingredients are mandatory**
+- **Even one disliked tag** fails it
+- Dish + drink must total **4 points (red)**. 3 points (orange) fails too
+
+Tips:
+- Keeping the [rare guest table](/customers/rare/) open next to the game makes it feel much easier
+- You can't kick guests out. If the required tag is one the guest dislikes, **waiting for the tag to change is the right call**
+- Tags many guests hate (Peculiar, Greasy, Raw) do come up. Don't force it if they're about to change
+
+## Phase 3 — Koishi
+
+| Step | What to do |
+|---|---|
+| 1 | Koishi's **real body** at table 2 has a fully hidden order |
+| 2 | **Clones** at the other tables order random dishes and drinks. Hit 4 points with the requested dish + required tag to reveal the real body's **4 liked / 2 disliked / 1 drink** tags |
+| 3 | Serve the real body food and drink matching the revealed tags → the real body is **stunned** |
+| 4 | While stunned you can feed her anything. Score = dish level + drink level |
+
+**54-point clear route**
+1. Clear clones to reveal tags → stun the real body
+2. Hourai Branch + Oni Killer 4 times (36 points) → Koishi closes her heart and all tags reset
+3. Clear clones again → stun again
+4. Hourai Branch + Oni Killer 2 times (18 points) → **54 points total, cleared**
+
+More tips:
+- There's always at least one dish in the recipe book that matches all 4 revealed tags. You can deduce it even before every tag is open
+- Time gets tight while handling clones → **keep the throwing buff that stops time up at all times**
+
+</div>

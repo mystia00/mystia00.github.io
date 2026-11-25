@@ -5,6 +5,10 @@ sidebar:
   order: 3
 ---
 
+<span hidden data-title-en="DLC 1 Boss — Toutetsu Yuuma"></span>
+
+<div class="ko-only">
+
 > DLC 1 스토리 스포일러 있음.
 
 ## 꿀팁 요약
@@ -35,3 +39,38 @@ sidebar:
 2. 제시 태그 바뀔 때마다 미리 찾아둔 요리로 빠르게 처리
 3. 후반 특정 요리 요구: 바로 만들 수 있는 것부터, 재료 많은 건 뒤로
 4. 도수 높음 요구는 게이지 여유 있을 때 몰아서 처리
+
+</div>
+<div class="en-only">
+
+> Spoilers for the DLC 1 story.
+
+## Quick tips
+
+- **The rampage gauge only fills from alcohol strength.** Stick to no/low alcohol and you'll barely see a rampage
+- **Push high-alcohol orders as far back as you can** and handle the low-alcohol ones first
+- **Find a few dishes that hit both shown tags at once ahead of time**. Filter by tag in [All Recipes](/dishes/) and they're quick to find
+- If the requested dish needs too many ingredients to fit the shown tags, **feed another clone first to roll new tags**
+
+### Best dishes
+
+<div class="tiles evt-tiles not-content"><a class="dtile" href="/dishes/rice-ball/"><span class="dicon"><img src="/icons/dishes/rice-ball.webp" alt="" width="48" height="48" loading="lazy" /></span><span class="dname">주먹밥</span></a><a class="dtile" href="/dishes/seafood-miso-soup/"><span class="dicon"><img src="/icons/dishes/seafood-miso-soup.webp" alt="" width="48" height="48" loading="lazy" /></span><span class="dname">미역 된장국</span></a><a class="dtile" href="/dishes/boiled-tofu/"><span class="dicon"><img src="/icons/dishes/boiled-tofu.webp" alt="" width="48" height="48" loading="lazy" /></span><span class="dname">삶은 두부</span></a><a class="dtile" href="/dishes/roasted-mushroom/"><span class="dicon"><img src="/icons/dishes/roasted-mushroom.webp" alt="" width="48" height="48" loading="lazy" /></span><span class="dname">버섯 구이</span></a><a class="dtile" href="/dishes/fresh-tofu/"><span class="dicon"><img src="/icons/dishes/fresh-tofu.webp" alt="" width="48" height="48" loading="lazy" /></span><span class="dname">냉두부</span></a></div>
+
+## Rules
+
+| Item | Details |
+|---|---|
+| Goal | Keep feeding Yuuma and her clones until the gauge is full |
+| Shown tags | 2 random ones. The dish **must** include them. They change every 10% of the gauge |
+| Rampage | Fills in proportion to alcohol strength. When full she steals several dishes, drinks and ingredients + **one cooking tool for that round** |
+| Patience Freeze | Doesn't work |
+| Late game | More orders for a specific dish or drink instead of tags |
+
+## How it goes
+
+1. Early: answer tag orders with no/low alcohol drinks
+2. Each time the shown tags change, clear them fast with the dishes you found earlier
+3. Late specific-dish orders: do the ones you can make right away first, ingredient-heavy ones last
+4. Handle high-alcohol requests in one go while the gauge has room
+
+</div>

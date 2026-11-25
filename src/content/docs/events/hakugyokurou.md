@@ -5,6 +5,10 @@ sidebar:
   order: 1
 ---
 
+<span hidden data-title-en="Youmu's Trials & Yuyuko Finale"></span>
+
+<div class="ko-only">
+
 > 본편 엔딩 스포일러 있음.
 
 ## 꿀팁 요약
@@ -71,3 +75,74 @@ sidebar:
 - 재료 많은 요리 요구하면 쟁여둔 아무 요리 줘서 빨리 내보내기. 쫓아내기가 없어서 이게 제일 빠름. 점수 안 깎임
 
 클리어 후 백옥루에서 시련 재도전으로 요우무·유유코를 [특별 손님](/customers/rare/?region=백옥루)으로 해금 가능.
+
+</div>
+<div class="en-only">
+
+> Spoilers for the main story ending.
+
+## Quick tips
+
+- **Trial 1**: pick just **2** pricey dishes you can make in bulk and repeat them through phase 3. Ingredients refill every phase
+- **Trial 2**: build the menu from pricey dishes only. As long as no table sits empty, you clear before 10 PM
+- **Yuyuko fight**: phase 1 is easy, so spend the spare time **stockpiling Kaguya-hime and Shirayuki**. That stockpile decides phase 3
+- Phase 3 random Yuyuko: only take her order **when the dish needs few ingredients**. Send the rest off fast with any dish
+- Everywhere: no partners allowed. **Keeping Climax up is everything**. If it drops, cook a Lv 1 dish (Rice Ball) to restart it
+
+### Best dishes
+
+<div class="tiles evt-tiles not-content"><a class="dtile" href="/dishes/falling-blossoms/"><span class="dicon"><img src="/icons/dishes/falling-blossoms.webp" alt="" width="48" height="48" loading="lazy" /></span><span class="dname">앵화낙설</span></a><a class="dtile" href="/dishes/kaguya-hime/"><span class="dicon"><img src="/icons/dishes/kaguya-hime.webp" alt="" width="48" height="48" loading="lazy" /></span><span class="dname">카구야히메</span></a><a class="dtile" href="/dishes/shirayuki/"><span class="dicon"><img src="/icons/dishes/shirayuki.webp" alt="" width="48" height="48" loading="lazy" /></span><span class="dname">백설</span></a><a class="dtile" href="/dishes/cantonese-char-siu/"><span class="dicon"><img src="/icons/dishes/cantonese-char-siu.webp" alt="" width="48" height="48" loading="lazy" /></span><span class="dname">차슈 구이</span></a><a class="dtile" href="/dishes/rice-ball/"><span class="dicon"><img src="/icons/dishes/rice-ball.webp" alt="" width="48" height="48" loading="lazy" /></span><span class="dname">주먹밥</span></a><a class="dtile" href="/dishes/seafood-miso-soup/"><span class="dicon"><img src="/icons/dishes/seafood-miso-soup.webp" alt="" width="48" height="48" loading="lazy" /></span><span class="dname">미역 된장국</span></a></div>
+
+## Youmu Trial 1 — Limited ingredients
+
+| Phase | Goal |
+|---|---|
+| 1–3 | Reach the sales target before closing. It rises a bit each phase |
+
+- 15–150 of each ingredient, drinks fixed at 15
+- Check the stock and pick **2 pricey dishes you can make 100+ of** → bring 4 of each of their cooking tools
+- e.g. [Falling Blossoms](/dishes/falling-blossoms/) (cutting board) + one pricey pot dish. No menu change needed through phase 3
+- Only 15 drinks, so don't bother with them
+
+## Youmu Trial 2 — Money + spell cards
+
+| Phase | Goal |
+|---|---|
+| 1 | ¥3,000 + 3 spell cards |
+| 2 | ¥4,000 + 5 spell cards |
+| 3 | ¥5,000 + 7 spell cards |
+
+- Money is the hard part, so **lean on pricey dishes**. Chasing spell cards with cheap dishes leaves you short on money
+- Clearing it makes Youmu a **partner** (cutting-board dishes finish instantly)
+
+## Yuyuko finale
+
+**Prep**: put [Kaguya-hime](/dishes/kaguya-hime/) and [Shirayuki](/dishes/shirayuki/) on sale, plus Cantonese Char Siu and [Rice Ball](/dishes/rice-ball/) on the menu. Bring fast cooking tools.
+
+| Phase | Goal | Tip |
+|---|---|---|
+| 1 | ¥2,000 from regular guests | Goes fast. **Spend all leftover time stockpiling Kaguya-hime and Shirayuki** |
+| 2 | 5 spell cards (a random guest punishment card fires every 10 s) | When Patchouli shows up, pop a spell and spam Cultural Heritage dishes. If none of the first 7 tables is Patchouli, restarting is faster. Kasen's and Mokou's punishment cards are the most dangerous |
+| 3 | Yuyuko gauge to 100% (best +4%, good +2%) | See the table below. Patience drains twice as fast and Patience Freeze doesn't work |
+
+### Phase 3 omakase Yuyuko cheat sheet
+
+Drink: **always Godfather**.
+
+| Requested tag | Serve |
+|---|---|
+| Japanese, Legendary, Premium | [Kaguya-hime](/dishes/kaguya-hime/) |
+| Aquatic, Cultural Heritage | [Shirayuki](/dishes/shirayuki/) |
+| Chinese | Cantonese Char Siu |
+| Large Portion | [Rice Ball](/dishes/rice-ball/) packed with 5 of Yuyuko's favorite extras |
+
+### Handling random Yuyuko
+
+- She asks for a specific dish, and Night Sparrow cooking tools don't work. **Serve the wrong thing and she eats your cooking tool**
+- **Time stops while the recipe book is open** → check at your own pace
+- If she asks for a 1–2 ingredient dish, take it and pack her favorite tags in (e.g. Seafood Miso Soup + Aquatic/Meat/Legendary ingredients + pumpkin) → at least +2%
+- If she asks for an ingredient-heavy dish, hand her anything from the stockpile to move her along. There's no kick-out, so this is the fastest. No score penalty
+
+After clearing, retry the trials at Hakugyokurou to unlock Youmu and Yuyuko as [special guests](/customers/rare/?region=백옥루).
+
+</div>

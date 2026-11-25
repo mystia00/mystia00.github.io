@@ -5,6 +5,10 @@ sidebar:
   order: 2
 ---
 
+<span hidden data-title-en="Kaguya vs Mokou Recipe Battle"></span>
+
+<div class="ko-only">
+
 > 미혹의 죽림 스토리 스포일러 있음.
 
 ## 꿀팁 요약
@@ -37,3 +41,40 @@ sidebar:
 ## 재대결
 
 엔딩 후 카구야에게 말 걸면 재대결 신청. 첫 판에서 진 쪽 요리만 팔면 반대 결과 + 업적 획득.
+
+</div>
+<div class="en-only">
+
+> Spoilers for the Bamboo Forest of the Lost story.
+
+## Quick tips
+
+- **You can't lose this.** The story moves on whoever wins, so relax
+- Want a particular outcome? **Only put that side's dish on the menu**
+- With both on the menu, Kaguya-hime wins by a mile thanks to the bamboo forest regulars' tastes
+- You can rematch after the ending → see the other outcome and grab the achievement
+
+### Best dishes
+
+<div class="tiles evt-tiles not-content"><a class="dtile" href="/dishes/kaguya-hime/"><span class="dicon"><img src="/icons/dishes/kaguya-hime.webp" alt="" width="48" height="48" loading="lazy" /></span><span class="dname">카구야히메</span></a><a class="dtile" href="/dishes/immortal-turkey/"><span class="dicon"><img src="/icons/dishes/immortal-turkey.webp" alt="" width="48" height="48" loading="lazy" /></span><span class="dname">불사조</span></a></div>
+
+## Easy to mix up
+
+| Dish | Whose recipe |
+|---|---|
+| [Kaguya-hime](/dishes/kaguya-hime/) | **Mokou** (a dish mocking Kaguya) |
+| Immortal Turkey | **Kaguya** (a dish mocking Mokou) |
+
+The names point the opposite way, so people get it wrong a lot. Each dish's description takes a jab at the other.
+
+## How it goes
+
+- A 3-day contest over which dish sells more
+- Both dishes need a lot of ingredients, but Reisen and Keine chip in some. No minimum sales required
+- Sell **exactly the same number** of both and Kaguya declares herself the winner as judge → Mokou-loses event (and Mokou accepts it)
+
+## Rematch
+
+Talk to Kaguya after the ending to ask for a rematch. Sell only the dish that lost the first time to see the other outcome + get the achievement.
+
+</div>
