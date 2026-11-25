@@ -1,0 +1,96 @@
+---
+// 환상향 지도. 지역 핀에 마우스 올리면 방문 손님, 누르면 그 지역 손님만 아래 목록에 표시.
+import { allCustomers, portrait, base } from '../lib/match';
+const pins: [string, number, number][] = [
+  ['요괴의 산', 25.0, 33.1],
+  ['홍마관', 30.7, 51.9],
+  ['마법의 숲', 18.4, 53.1],
+  ['휘침성', 47.9, 34.1],
+  ['지령전', 47.0, 51.9],
+  ['옛 지옥', 56.6, 51.9],
+  ['하쿠레이 신사', 67.0, 52.1],
+  ['달의 도시', 81.3, 27.8],
+  ['마계', 87.4, 57.5],
+  ['인간 마을', 47.7, 65.1],
+  ['요괴 짐승길', 61.6, 64.9],
+  ['명련사', 29.1, 69.0],
+  ['신령묘', 21.9, 84.5],
+  ['태양의 밭', 48.9, 84.9],
+  ['미혹의 죽림', 68.1, 80.8],
+  ['백옥루', 9.3, 12.6],
+];
+const visitors = (r: string) => allCustomers.filter((c) => c.region === r || ((c as any).where ?? []).includes(r));
+const short = (n: string) => n.split(' ').pop()!;
+---
+<div class="rmap" data-rmap>
+  <img class="rmap-img" src={`${base}/map.webp`} alt="환상향 지도" width="1400" height="887" />
+  {pins.map(([r, x, y]) => {
+    const v = visitors(r);
+    const rare = v.filter((c) => c.region === r);
+    const sp = v.filter((c) => c.region !== r);
+    const cls = ['pin', y < 40 ? 'below' : '', x > 75 ? 'left' : x < 22 ? 'right' : ''].join(' ');
+    return (
+      <button type="button" class={cls} style={`left:${x}%;top:${y}%`} data-region={r} aria-label={`${r} 손님 보기`}>
+        <span class="pin-dot"></span>
+        <span class="pin-label">{r}</span>
+        <span class="pin-tip" aria-hidden="true">
+          <b>{r} 방문 손님 {v.length}명</b>
+          <span class="pin-faces">
+            {rare.map((c) => (
+              <span class="face">
+                {portrait(c.name) ? <img src={portrait(c.name)!} alt="" width="36" height="36" loading="lazy" /> : <i></i>}
+                <small data-en={c.en}>{short(c.name)}</small>
+              </span>
+            ))}
+          </span>
+          {sp.length > 0 && (
+            <>
+              <em>특별손님</em>
+              <span class="pin-faces sp">
+                {sp.map((c) => (
+                  <span class="face">
+                    {portrait(c.name) ? <img src={portrait(c.name)!} alt="" width="28" height="28" loading="lazy" /> : <i></i>}
+                    <small data-en={c.en}>{short(c.name)}</small>
+                  </span>
+                ))}
+              </span>
+            </>
+          )}
+        </span>
+      </button>
+    );
+  })}
+</div>
+<p class="rmap-status"><span data-rmap-label>지역 누르면 그 지역에 오는 손님만 아래에 나옴</span> <button type="button" data-rmap-all hidden>전체 보기</button></p>
+
+<script>
+  const map = document.querySelector<HTMLElement>('[data-rmap]');
+  if (map) {
+    const rows = [...document.querySelectorAll<HTMLElement>('.fav-row')];
+    const secs = [...document.querySelectorAll<HTMLElement>('.fav-region')];
+    const label = document.querySelector<HTMLElement>('[data-rmap-label]')!;
+    const all = document.querySelector<HTMLButtonElement>('[data-rmap-all]')!;
+    const pins = [...map.querySelectorAll<HTMLButtonElement>('.pin')];
+    const select = (r: string | null, scroll = true) => {
+      for (const p of pins) p.classList.toggle('on', p.dataset.region === r);
+      let n = 0;
+      for (const row of rows) {
+        const ok = !r || (row.dataset.visit ?? '').split('|').includes(r);
+        row.hidden = !ok;
+        if (ok) n++;
+      }
+      for (const s of secs) s.hidden = !s.querySelector('.fav-row:not([hidden])');
+      label.textContent = r ? `${r}에 오는 손님 ${n}명` : '지역 누르면 그 지역에 오는 손님만 아래에 나옴';
+      all.hidden = !r;
+      const url = new URL(location.href);
+      if (r) url.searchParams.set('region', r);
+      else url.searchParams.delete('region');
+      history.replaceState(null, '', url);
+      if (r && scroll) document.querySelector('.fav-region:not([hidden])')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    };
+    for (const p of pins) p.addEventListener('click', () => select(p.classList.contains('on') ? null : p.dataset.region!));
+    all.addEventListener('click', () => select(null, false));
+    const q = new URLSearchParams(location.search).get('region');
+    if (q) select(q, false);
+  }
+</script>

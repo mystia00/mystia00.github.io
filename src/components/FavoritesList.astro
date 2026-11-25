@@ -1,15 +1,14 @@
 ---
 // 손님별 추천 요리 (스타듀밸리 선물표처럼). 손님 칸 왼쪽은 초상 자리, 오른쪽은 요리 아이콘.
 import DishTile from './DishTile.astro';
+import RegionMap from './RegionMap.astro';
 import { allCustomers, recommend, portrait, customerLines } from '../lib/match';
 const regions = [...new Set(allCustomers.map((c) => c.region))];
 // 초상 자리에 넣을 짧은 이름 (서양식 이름은 앞, 일본식 이름은 뒤)
 const western = ['리글 나이트버그', '앨리스 마가트로이드', '메디슨 멜랑콜리'];
 const short = (n: string) => (n.includes(' ') ? (western.includes(n) ? n.split(' ')[0] : n.split(' ').pop()!) : n).slice(0, 3);
 ---
-<div class="fav-nav">
-  {regions.map((r) => <a href={`#r-${r.replace(/\s+/g, '-')}`}>{r}</a>)}
-</div>
+<RegionMap />
 {regions.map((r) => (
   <section class="fav-region">
     <h2 id={`r-${r.replace(/\s+/g, '-')}`}>{r}</h2>
@@ -17,7 +16,7 @@ const short = (n: string) => (n.includes(' ') ? (western.includes(n) ? n.split('
       {allCustomers.filter((c) => c.region === r).map((c) => {
         const recs = recommend(c, 6);
         return (
-          <div class="fav-row" id={`c-${c.name}`}>
+          <div class="fav-row" id={`c-${c.name}`} data-visit={[c.region, ...((c as any).where ?? [])].join('|')}>
             <div class="fav-who">
               {portrait(c.name)
                 ? <img class="portrait" src={portrait(c.name)!} alt="" width="56" height="56" loading="lazy" />
