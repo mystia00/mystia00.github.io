@@ -3,6 +3,10 @@ title: 영업 기본기
 description: 동방야작식당 스펠 카드 발동 조건, 처벌 카드, 리듬 게임 버프 우선순위, 동료 배치 추천, 하루 시간 관리 꿀팁.
 ---
 
+<span hidden data-title-en="Business Basics"></span>
+
+<div class="ko-only">
+
 ## 하루 시간표
 
 | 시간 | 할 일 | 주의 |
@@ -12,7 +16,7 @@ description: 동방야작식당 스펠 카드 발동 조건, 처벌 카드, 리�
 | 영업 | 일반 손님은 메뉴판 주문, 희귀 손님은 대사로 태그 주문 | |
 | 영업 종료 | 저장 | **낮에는 저장 불가.** 재료·퀘스트 빠뜨리면 하루 날림 |
 
-시간대마다 나오는 재료가 다름. 초반엔 몇 시에 어디 돌지 **동선 고정**하는 게 제일 큰 차이.
+시간대별로 파는 재료가 다름. 초반엔 몇 시에 어디 돌지 **동선 고정**하는 게 제일 큰 차이.
 
 ## 희귀 손님 응대
 
@@ -23,7 +27,7 @@ description: 동방야작식당 스펠 카드 발동 조건, 처벌 카드, 리�
 
 둘 다 채우면 보상 스펠 카드 발동. 손님별 태그는 [희귀 손님 전체표](/customers/rare/), 딱 맞는 요리는 [손님별 추천 요리](/customers/favorites/) 참고. 밤참새 조리 도구로 만든 요리는 1번(요구 태그) 무시 가능.
 
-### 처벌 카드 나오는 경우
+### 처벌 카드 발동 조건
 
 - 요리·술 **둘 다** 취향과 안 맞을 때
 - 예산을 크게 넘는 가격일 때. 너무 넘으면 돈 안 내고 도망감
@@ -51,7 +55,7 @@ description: 동방야작식당 스펠 카드 발동 조건, 처벌 카드, 리�
 | DLC 1 있음 | 사쿠야 (순간이동) | 유메코 (요리 던짐) | 히나 (주문 즉시 조리, 15% 암흑물질) |
 | DLC 없음 | 사쿠야 | 레이센 (팁 +20%) | 요우무 (도마 즉시 완성 → 메뉴를 도마 요리로) |
 
-히나는 암흑물질 나와도 성공할 때까지 다시 만들어서 냉장고에 넣음. 손해는 재료 조금뿐이고 급여 0%. DLC 1 조합 쓰면 일반 손님은 신경 끄고 희귀 손님만 보면 됨.
+히나는 암흑물질이 돼도 성공할 때까지 다시 만들어서 냉장고에 넣음. 손해는 재료 조금뿐이고 급여 0%. DLC 1 조합 쓰면 일반 손님은 신경 끄고 희귀 손님만 보면 됨.
 
 ## 지역 진행
 
@@ -68,3 +72,74 @@ description: 동방야작식당 스펠 카드 발동 조건, 처벌 카드, 리�
 | 누적 25,500엔 | 지역 이동에 시간 대신 돈 쓰는 워프(스키마) 해금 |
 
 신사 열린 날부터 **매일 1,000엔씩** 넣으면 버프 받으면서 자연스럽게 워프 해금. 후반엔 워프가 사실상 필수.
+
+</div>
+<div class="en-only">
+
+## Daily schedule
+
+| Time | What to do | Watch out |
+|---|---|---|
+| 10:00 – 18:00 | Gathering, shopping, quests, inviting guests | Each gather or area move takes 30 min |
+| 18:00 | Choose area, partners, menu, cooking tools | Any learned recipe can be cooked even if it's not on the menu |
+| Business | Regular guests order from the menu; rare guests order tags through dialogue | |
+| Closing | Save | **You can't save during the day.** Miss an ingredient or quest and the day is wasted |
+
+Shops sell different ingredients at different times. Early on, **fixing your daily route** makes the biggest difference.
+
+## Serving rare guests
+
+### Spell card conditions
+
+1. Match the tag they ask for in their line
+2. The dish's **liked food tags** + the drink's **liked drink tags** add up to **4 or more**
+
+Meet both and the reward spell card fires. See the [rare guest table](/customers/rare/) for each guest's tags and [Best Dishes per Guest](/customers/favorites/) for perfect dishes. Dishes made with Night Sparrow cooking tools can skip condition 1 (the requested tag).
+
+### When punishment cards fire
+
+- When **both** the dish and the drink miss their tastes
+- When the price is far over their budget. Go too far and they leave without paying
+
+## Yosuzume's Song (cooking rhythm game)
+
+Hit every note perfectly for a chance at one buff.
+
+| Buff | Effect | Priority |
+|---|---|---|
+| Ranged serving | Throw dishes to serve. The throw window (K by default) also shows rare guests' orders | 1st |
+| Taotie's Feast | Guests finish eating instantly | 2nd |
+| Patience Freeze | Patience stops dropping | 3rd |
+
+Stack all three for **Climax** (60 s): all three apply + the rhythm game is skipped. Late game, keeping this up all the time is standard.
+
+**Keeping it up**: as soon as it ends, cook one Lv 1 dish (Rice Ball, Seafood Miso Soup) to trigger it again. The notes are simple. You can throw the dish away. In Human Village the start of the business BGM is silent, so you can trigger it in 1 second with no notes.
+
+## Partners
+
+Up to 3: one each for cooking, food serving and drink serving. Partners **don't handle rare guests' orders.**
+
+| Setup | Drink serving | Food serving | Cooking |
+|---|---|---|---|
+| With DLC 1 | Sakuya (teleports) | Yumeko (throws dishes) | Hina (cooks orders instantly, 15% Dark Matter) |
+| No DLC | Sakuya | Reisen (tips +20%) | Youmu (cutting-board dishes finish instantly → fill the menu with cutting-board dishes) |
+
+If Hina makes Dark Matter, she keeps recooking until it works and puts it in the fridge. You only lose a few ingredients, and her wage is 0%. With the DLC 1 lineup you can ignore regular guests and watch only rare ones.
+
+## Area progress
+
+- Pay off an area's debt to unlock the next area
+- 3 rare guests per area; each bond level gives a new recipe
+- Bond Lv 5 reward: an outfit, a decoration, or an **area gathering request**. Always max guests who give a gathering request. Late game you travel so much that basic ingredients actually run short
+
+## Hakurei Shrine donation box
+
+| Donation | Effect |
+|---|---|
+| ¥500+ per day | Barrier buff for the day (keeps punishment cards and refusing Tewi's hard sell from breaking your combo) |
+| ¥1,000 per day | The above + faster cooking for Economical dishes |
+| ¥25,500 total | Unlocks warping (gap travel) that costs money instead of time |
+
+From the day the shrine opens, **donate ¥1,000 every day** to get the buff and unlock warping along the way. Warping is practically required late game.
+
+</div>
