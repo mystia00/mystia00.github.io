@@ -263,3 +263,7 @@ img.ico { display: inline-block; vertical-align: middle; width: 32px; height: 32
 .drk-tile { cursor: default; }
 .drk-tile .dicon img { image-rendering: pixelated; }
 details.orders[open] summary { margin-bottom: 0.2rem; }
+
+/* 국문/영문 본문 블록 */
+html[data-lang='en'] .ko-only { display: none !important; }
+html:not([data-lang='en']) .en-only { display: none !important; }
