@@ -104,7 +104,7 @@ td.rg { white-space: nowrap; }
 
 /* 손님별 추천 요리 */
 .fav-nav { display: flex; flex-wrap: wrap; gap: 0.3rem 0.8rem; font-size: 0.85rem; margin-top: 1rem; }
-.fav-list { border: 1px solid var(--sl-color-hairline); border-radius: 8px; overflow: hidden; }
+.fav-list { border: 1px solid var(--sl-color-hairline); border-radius: 8px; }
 .fav-row { display: grid; grid-template-columns: minmax(10rem, 14rem) minmax(0, 1fr); gap: 1rem; padding: 0.9rem; border-bottom: 1px solid var(--sl-color-hairline); margin: 0 !important; scroll-margin-top: 5rem; }
 .fav-row:last-child { border-bottom: 0; }
 .fav-row:target { background: var(--sl-color-accent-low); }
@@ -137,7 +137,7 @@ a.chip { text-decoration: none; }
 /* 요리 칸 마우스 올리면 재료 미리보기 */
 .dtile { position: relative; }
 .tip {
-  display: none; position: absolute; z-index: 30; bottom: calc(100% + 6px); left: 50%; transform: translateX(-50%);
+  display: none; position: absolute; z-index: 30; top: calc(100% + 4px); left: 50%; transform: translateX(-50%);
   width: max-content; max-width: 15rem; padding: 0.5rem 0.6rem; border-radius: 8px; text-align: left;
   background: var(--sl-color-gray-7, var(--sl-color-black)); color: var(--sl-color-white);
   border: 1px solid var(--sl-color-gray-5); box-shadow: 0 6px 18px rgba(0,0,0,.25); pointer-events: none;
