@@ -1,22 +1,27 @@
 ---
-// 손님별 추천 요리 (스타듀밸리 선물표처럼). 손님 칸 왼쪽은 초상 자리, 오른쪽은 요리 아이콘.
+// 손님별 추천 요리 (스타듀밸리 선물표처럼). only를 주면 그 지역 방문 손님만.
 import DishTile from './DishTile.astro';
 import RegionMap from './RegionMap.astro';
 import { allCustomers, recommend, portrait, customerLines } from '../lib/match';
-const regions = [...new Set(allCustomers.map((c) => c.region))];
+import { visitors } from '../lib/regions';
+interface Props { only?: string }
+const { only } = Astro.props;
+const groups: [string, typeof allCustomers][] = only
+  ? [[`${only} 방문 손님 ${visitors(only).length}명`, visitors(only)]]
+  : [...new Set(allCustomers.map((c) => c.region))].map((r) => [r, allCustomers.filter((c) => c.region === r)]);
 // 초상 자리에 넣을 짧은 이름 (서양식 이름은 앞, 일본식 이름은 뒤)
 const western = ['리글 나이트버그', '앨리스 마가트로이드', '메디슨 멜랑콜리'];
 const short = (n: string) => (n.includes(' ') ? (western.includes(n) ? n.split(' ')[0] : n.split(' ').pop()!) : n).slice(0, 3);
 ---
-<RegionMap />
-{regions.map((r) => (
+<RegionMap current={only} />
+{groups.map(([r, list]) => (
   <section class="fav-region">
     <h2 id={`r-${r.replace(/\s+/g, '-')}`}>{r}</h2>
     <div class="fav-list">
-      {allCustomers.filter((c) => c.region === r).map((c) => {
+      {list.map((c) => {
         const recs = recommend(c, 6);
         return (
-          <div class="fav-row" id={`c-${c.name}`} data-visit={[c.region, ...((c as any).where ?? [])].join('|')}>
+          <div class="fav-row" id={`c-${c.name}`}>
             <div class="fav-who">
               {portrait(c.name)
                 ? <img class="portrait" src={portrait(c.name)!} alt="" width="56" height="56" loading="lazy" />
@@ -24,7 +29,7 @@ const short = (n: string) => (n.includes(' ') ? (western.includes(n) ? n.split('
               <div>
                 <b data-en={c.en}>{c.name}</b>
                 <small>{c.dlc} · 예산 {c.budget}</small>
-                {c.where && <small class="where">출현: {c.where.join(', ')}</small>}
+                {(c as any).where && <small class="where">출현: {(c as any).where.join(', ')}</small>}
               </div>
             </div>
             <div class="fav-dishes">
