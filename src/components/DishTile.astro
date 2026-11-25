@@ -1,11 +1,12 @@
 ---
 // 요리 아이콘 칸. 누르면 레시피 상세, 마우스 올리면 재료 미리보기.
-import { dishName, dishUrl, dishIcon, ingIcon, ingEn, type Dish } from '../lib/match';
+import { dishName, dishUrl, dishIcon, ingIcon, ingEn, quotes, portrait, type Dish } from '../lib/match';
 interface Props { dish: Dish; size?: 'sm' | 'md'; label?: boolean }
 const { dish, size = 'md', label = true } = Astro.props;
 const name = dishName(dish);
 const tool = dish.tool;
 const icon = dishIcon(dish);
+const qs = quotes(dish, 3);
 ---
 <a class={`dtile ${size}`} href={dishUrl(dish)} aria-label={name}>
   <span class={`dicon t-${['냄비','그릴','찜기','도마','팬'].indexOf(tool)}`} aria-hidden="true">
@@ -23,5 +24,15 @@ const icon = dishIcon(dish);
       ))}
     </span>
     <small>{dish.price}엔 · {tool}</small>
+    {qs.length > 0 && (
+      <span class="tip-q">
+        {qs.map((q) => (
+          <span class="q">
+            {portrait(q.customer.name) && <img src={portrait(q.customer.name)!} alt="" loading="lazy" width="20" height="20" />}
+            <span><b data-en={q.customer.en}>{q.customer.name}</b> “{q.line}” <em>{q.tag}</em></span>
+          </span>
+        ))}
+      </span>
+    )}
   </span>
 </a>
