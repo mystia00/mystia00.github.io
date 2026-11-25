@@ -253,3 +253,13 @@ details.orders li { margin: 0.1rem 0; }
 /* 백옥루는 지도에 점이 없어서 직접 표시 */
 .rmap .spot[href*='hakugyokurou']::before { content: ''; position: absolute; left: 50%; top: 50%; width: 14px; height: 14px; transform: translate(-50%, -50%); border-radius: 50%; background: #f07a2a; border: 2px solid #ffe0a0; }
 .rmap .spot[href*='hakugyokurou']::after { content: '백옥루'; position: absolute; left: 50%; top: 100%; transform: translateX(-50%); font-size: 0.7rem; font-weight: 700; color: #fff; white-space: nowrap; text-shadow: 0 1px 3px #000; }
+
+/* 이벤트 개꿀 요리 칸, 글 속 작은 요리 아이콘 */
+.evt-tiles { margin: 0.4rem 0 1.2rem; }
+img.ico { display: inline-block; vertical-align: middle; width: 32px; height: 32px; margin: 0 2px 0 0 !important; image-rendering: pixelated; }
+
+/* 손님별 추천 술 칸 */
+.drk-tiles { margin-top: 0.4rem; }
+.drk-tile { cursor: default; }
+.drk-tile .dicon img { image-rendering: pixelated; }
+details.orders[open] summary { margin-bottom: 0.2rem; }
