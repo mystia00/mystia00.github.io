@@ -38,7 +38,7 @@ const drinkRecs = (want: string[]) => drinks
               <div>
                 <b data-en={c.en}>{c.name}</b>
                 <small>{c.dlc} · 예산 {c.budget}</small>
-                {(c as any).where && <small class="where">출현: {(c as any).where.join(', ')}</small>}
+                {(c as any).where && <small class="where">등장: {(c as any).where.join(', ')}</small>}
               </div>
             </div>
             <div class="fav-dishes">
