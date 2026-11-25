@@ -1,11 +1,14 @@
 ---
 title: 요리 레시피 전체
-description: 동방야작식당 요리 161종 레시피. 조리 도구, 태그, 재료로 검색하고 요리를 누르면 재료·가격·해금 방법·좋아하는 손님 확인 가능.
+description: 동방야작식당 요리 163종 레시피. 조리 도구, 태그, 재료로 검색하고 요리를 누르면 재료·가격·해금 방법·좋아하는 손님 확인 가능.
 tableOfContents: false
 ---
 
 import DishIndex from '../../../components/DishIndex.astro';
 
+<span hidden data-title-en="All Recipes"></span>
+
 <DishIndex />
 
-<small>레시피 데이터와 아이콘: [Touhou Mystia's Izakaya Wiki](https://touhou-mystias-izakaya.fandom.com/wiki/Cuisines). 게임 그림 권리는 개발사 二色幽紫蝶에 있음. "영문" 표시 요리는 한국어 이름 확인 중.</small>
+<small class="ko-only">레시피 데이터와 아이콘: <a href="https://touhou-mystias-izakaya.fandom.com/wiki/Cuisines">Touhou Mystia's Izakaya Wiki</a>. 게임 그림 권리는 개발사 二色幽紫蝶에 있음.</small>
+<small class="en-only">Recipe data and icons: <a href="https://touhou-mystias-izakaya.fandom.com/wiki/Cuisines">Touhou Mystia's Izakaya Wiki</a>. Game art belongs to the developer 二色幽紫蝶.</small>
