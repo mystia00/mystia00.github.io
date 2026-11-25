@@ -227,3 +227,25 @@ details.orders li { margin: 0.1rem 0; }
 .rmap-status button { font: inherit; font-size: 0.8rem; margin-left: 0.4rem; padding: 0.1rem 0.6rem; border-radius: 6px; border: 1px solid var(--sl-color-gray-5); background: var(--sl-color-gray-6); color: var(--sl-color-white); cursor: pointer; }
 .fav-row[hidden], .fav-region[hidden] { display: none; }
 @media (max-width: 640px) { .pin-label { font-size: 0.58rem; padding: 0 3px; } .pin-dot { width: 10px; height: 10px; } }
+
+/* 지도 지점 (게임 지도 노란 점 위) */
+.rmap .spot { position: absolute; width: 30px; height: 30px; transform: translate(-50%, -50%); border-radius: 50%; z-index: 2; text-decoration: none; }
+.spot-ring { position: absolute; inset: 0; border-radius: 50%; border: 2px solid rgba(255, 214, 90, 0); transition: border-color .15s, box-shadow .15s; }
+.rmap .spot:hover .spot-ring, .rmap .spot:focus-visible .spot-ring { border-color: #ffd65a; box-shadow: 0 0 0 4px rgba(255, 214, 90, .35), 0 0 14px rgba(255, 214, 90, .8); }
+.rmap .spot.on .spot-ring { border-color: #ffd65a; box-shadow: 0 0 0 4px rgba(255, 214, 90, .5); animation: spotPulse 1.6s infinite; }
+@keyframes spotPulse { 50% { box-shadow: 0 0 0 9px rgba(255, 214, 90, 0); } }
+.rmap .spot:hover, .rmap .spot:focus-visible { z-index: 20; }
+.spot-tip {
+  display: none; position: absolute; bottom: calc(100% + 4px); left: 50%; transform: translateX(-50%); width: max-content; max-width: 19rem;
+  padding: 0.5rem 0.6rem; border-radius: 8px; text-align: left; pointer-events: none; color: var(--sl-color-white);
+  background: var(--sl-color-gray-7, var(--sl-color-black)); border: 1px solid var(--sl-color-gray-5); box-shadow: 0 6px 18px rgba(0,0,0,.35);
+}
+.rmap .spot.below .spot-tip { bottom: auto; top: calc(100% + 4px); }
+.rmap .spot.left .spot-tip { left: auto; right: 0; transform: none; }
+.rmap .spot.right .spot-tip { left: 0; transform: none; }
+.rmap .spot:hover .spot-tip, .rmap .spot:focus-visible .spot-tip { display: block; }
+.spot-tip b { display: block; font-size: 0.85rem; margin-bottom: 0.4rem; }
+.spot-tip b span { font-weight: 400; font-size: 0.72rem; color: var(--sl-color-gray-3); margin-left: 0.3rem; }
+.spot-tip em { display: block; font-style: normal; font-size: 0.68rem; color: var(--sl-color-gray-3); margin: 0.4rem 0 0.2rem; }
+.spot-go { display: block; margin-top: 0.45rem; font-size: 0.66rem; color: var(--sl-color-accent-high); }
+.back { font-size: 0.85rem; color: var(--sl-color-gray-3); }
