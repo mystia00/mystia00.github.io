@@ -1,11 +1,14 @@
 ---
 title: 손님별 추천 요리
-description: 동방야작식당 희귀·특별 손님 67명마다 좋아하는 태그를 가장 많이 맞추는 요리 6개와 좋아하는 술 태그. 요리를 누르면 레시피로 이동.
+description: 동방야작식당 희귀·특별 손님 67명마다 좋아하는 태그를 가장 많이 맞추는 요리 6개와 술 4개, 주문 멘트. 요리를 누르면 레시피로 이동.
 tableOfContents: false
 ---
 
 import FavoritesList from '../../../components/FavoritesList.astro';
 
-선호 태그를 많이 맞추고 불호 태그는 없는 요리만 골랐음. 많이 맞는 순, 같으면 싼 순. 요리 누르면 레시피·재료 나옴.
+<span hidden data-title-en="Best Dishes per Guest"></span>
+
+<p class="ko-only">선호 태그를 많이 맞추고 불호 태그는 없는 요리만 골랐음. 많이 맞는 순, 같으면 싼 순. 술도 같은 기준. 요리 누르면 레시피·재료 확인 가능.</p>
+<p class="en-only">Only dishes that hit many liked tags and no disliked ones. Most matches first, cheapest first on ties. Drinks use the same rule. Click a dish for its recipe and ingredients.</p>
 
 <FavoritesList />

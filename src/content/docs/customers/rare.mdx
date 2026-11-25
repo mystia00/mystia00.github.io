@@ -7,7 +7,11 @@ tableOfContents: false
 import CustomerFinder from '../../../components/CustomerFinder.astro';
 import AdSlot from '../../../components/AdSlot.astro';
 
+<span hidden data-title-en="Rare & Special Guests"></span>
+
 <CustomerFinder />
+
+<div class="ko-only">
 
 ## 표 읽는 법
 
@@ -17,7 +21,21 @@ import AdSlot from '../../../components/AdSlot.astro';
 - **예산**: 크게 넘기면 돈 안 내고 나가거나 처벌 카드 발동. 정확한 값은 도감에서 확인 가능
 - **지역**: 희귀 손님은 대부분 자기 지역 영업 때만 옴. 다른 지역에서 받으려면 낮에 찾아가서 초대
 - **특별**: 백옥루 요우무·유유코는 엔딩 후 시련 재클리어 시 손님으로 추가
-- **특별손님**: 여러 지역에 랜덤 출현. 지역으로 거르면 그 지역에 나오는 특별손님도 같이 나옴. 초대 불가라 인연 레벨은 안 올라감
+- **특별손님**: 여러 지역에 랜덤 등장. 지역 필터를 걸면 그 지역에 오는 특별손님도 함께 표시. 초대 불가라 인연 레벨 없음
+
+</div>
+<div class="en-only">
+
+## How to read the table
+
+- **Liked food tags**: their order lines ask for one of these. Match the requested tag and get liked food tags + liked drink tags to 4 or more to trigger the reward spell card
+- **Disliked food tags**: lower satisfaction when they're on the dish. Extra ingredients can cover them
+- **Popular / Unpopular**: trend tags that change daily. The same dish can gain or lose them from day to day
+- **Budget**: go far over it and they leave without paying or a punishment card fires. Exact values are in the in-game encyclopedia
+- **Area**: most rare guests only come while you run the shop in their own area. To serve them elsewhere, visit and invite them during the day
+- **Special**: Youmu and Yuyuko from Hakugyokurou join as guests after you re-clear the trials post-ending
+- **Special guests**: show up randomly in several areas. Filtering by area also shows the special guests who visit it. They can't be invited, so they have no bond level
+
+</div>
 
 <AdSlot />
-
