@@ -64,8 +64,9 @@ const ord = orders as Record<string, [string, string][]>;
 /** 손님 주문 멘트 목록 [멘트, 태그] */
 export const customerLines = (name: string) => ord[name] ?? [];
 /** 이 요리로 응대 가능한 손님 멘트 (요리 태그와 맞는 주문, 선호 많이 맞는 손님 순) */
-export function quotes(d: Dish, n = 3): { customer: Customer; line: string; tag: string }[] {
+export function quotes(d: Dish, n = 3, first?: string): { customer: Customer; line: string; tag: string }[] {
   return fans(d)
+    .sort((a, b) => Number(b.customer.name === first) - Number(a.customer.name === first))
     .flatMap((f) => {
       const o = customerLines(f.customer.name).find(([, t]) => d.tags.includes(t));
       return o ? [{ customer: f.customer, line: o[0], tag: o[1] }] : [];
