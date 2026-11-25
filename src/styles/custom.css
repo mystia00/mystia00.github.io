@@ -191,3 +191,39 @@ details.orders { margin-top: 0.4rem !important; font-size: 0.8rem; }
 details.orders summary { cursor: pointer; color: var(--sl-color-gray-3); }
 details.orders ul { margin: 0.3rem 0 0; padding-left: 1rem; }
 details.orders li { margin: 0.1rem 0; }
+
+/* 환상향 지도 */
+.rmap { position: relative; margin-top: 1rem; border-radius: 10px; border: 1px solid var(--sl-color-gray-5); }
+.rmap-img { display: block; width: 100%; height: auto; border-radius: 10px; margin: 0 !important; }
+.rmap .pin {
+  position: absolute; transform: translate(-50%, -8px); margin: 0 !important; padding: 0; border: 0; background: none; cursor: pointer;
+  display: flex; flex-direction: column; align-items: center; gap: 2px; z-index: 2; font: inherit;
+}
+.pin-dot { width: 16px; height: 16px; border-radius: 50%; background: var(--sl-color-accent); border: 2px solid #fff; box-shadow: 0 0 0 3px rgba(0,0,0,.35); transition: transform .15s; }
+.pin-label { font-size: 0.72rem; font-weight: 700; white-space: nowrap; color: #fff; padding: 1px 6px; border-radius: 4px; background: rgba(20, 14, 10, .8); line-height: 1.5; }
+.rmap .pin:hover, .rmap .pin:focus-visible { z-index: 20; }
+.rmap .pin:hover .pin-dot, .rmap .pin.on .pin-dot { transform: scale(1.35); background: #ffcf3f; }
+.rmap .pin.on .pin-label { background: var(--sl-color-accent); }
+.pin-tip {
+  display: none; position: absolute; bottom: calc(100% + 6px); left: 50%; transform: translateX(-50%); width: max-content; max-width: 19rem;
+  padding: 0.5rem 0.6rem; border-radius: 8px; text-align: left; cursor: default; pointer-events: none;
+  background: var(--sl-color-gray-7, var(--sl-color-black)); color: var(--sl-color-white);
+  border: 1px solid var(--sl-color-gray-5); box-shadow: 0 6px 18px rgba(0,0,0,.35);
+}
+.rmap .pin.below .pin-tip { bottom: auto; top: calc(100% + 6px); }
+.rmap .pin.left .pin-tip { left: auto; right: 0; transform: none; }
+.rmap .pin.right .pin-tip { left: 0; transform: none; }
+@media (hover: hover) { .rmap .pin:hover .pin-tip { display: block; } }
+.pin-tip b { display: block; font-size: 0.78rem; margin-bottom: 0.35rem; }
+.pin-tip em { display: block; font-style: normal; font-size: 0.68rem; color: var(--sl-color-gray-3); margin: 0.4rem 0 0.2rem; }
+.pin-faces { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.pin-faces .face { display: flex; flex-direction: column; align-items: center; width: 3rem; margin: 0 !important; }
+.pin-faces img { width: 36px; height: 36px; border-radius: 50%; margin: 0 !important; border: 1px solid var(--sl-color-gray-5); }
+.pin-faces.sp .face { width: 2.4rem; }
+.pin-faces.sp img { width: 28px; height: 28px; }
+.pin-faces i { display: block; width: 28px; height: 28px; border-radius: 50%; background: var(--sl-color-gray-5); }
+.pin-faces small { font-size: 0.62rem; line-height: 1.2; text-align: center; white-space: nowrap; }
+.rmap-status { font-size: 0.85rem; color: var(--sl-color-gray-3); margin-top: 0.5rem !important; }
+.rmap-status button { font: inherit; font-size: 0.8rem; margin-left: 0.4rem; padding: 0.1rem 0.6rem; border-radius: 6px; border: 1px solid var(--sl-color-gray-5); background: var(--sl-color-gray-6); color: var(--sl-color-white); cursor: pointer; }
+.fav-row[hidden], .fav-region[hidden] { display: none; }
+@media (max-width: 640px) { .pin-label { font-size: 0.58rem; padding: 0 3px; } .pin-dot { width: 10px; height: 10px; } }
