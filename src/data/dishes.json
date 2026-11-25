@@ -159,5 +159,7 @@
 {"id":"planet-mars","en":"Planet Mars","ko":"화성","dlc":"DLC 5","lv":5,"price":198,"tool":"찜기","ing":["애모","포도","게","이슬"],"tags":["고가","수산물","고급","전설적","바다의 일미","사진빨을 받음","문화적","불가사의함","과일맛"],"ban":["산의 일미"],"unlock":"와타츠키노 요리히메 인연 4레벨 보상"},
 {"id":"heart-warming-congee","en":"Heart-warming Congee","ko":"보양죽","dlc":"DLC 5","lv":1,"price":35,"tool":"냄비","ing":["흰목이버섯","연밥"],"tags":["담백함","단 맛","특산물"],"ban":[],"unlock":"레이센 인연 2레벨 보상"},
 {"id":"hot-pepper-soup","en":"Hot Pepper Soup","ko":"후라탕","dlc":"DLC 5","lv":2,"price":60,"tool":"팬","ing":["고추","소고기","두부"],"tags":["가정식","중식","따뜻함","국류","매움","달아오름"],"ban":[],"unlock":"레이센 인연 3레벨 보상"},
-{"id":"supreme-seafood-noodles","en":"Supreme Seafood Noodles","ko":"지존 해물짬뽕","dlc":"DLC 5","lv":4,"price":135,"tool":"냄비","ing":["특상급 참치","해초","문어","게","새우"],"tags":["고가","수산물","가정식","고급","배부름","바다의 일미","신선함"],"ban":[],"unlock":"레이센 인연 4레벨 보상"}
+{"id":"supreme-seafood-noodles","en":"Supreme Seafood Noodles","ko":"지존 해물짬뽕","dlc":"DLC 5","lv":4,"price":135,"tool":"냄비","ing":["특상급 참치","해초","문어","게","새우"],"tags":["고가","수산물","가정식","고급","배부름","바다의 일미","신선함"],"ban":[],"unlock":"레이센 인연 4레벨 보상"},
+{"id":"mooncake","en":"Mooncake","ko":"월병","dlc":"기타","lv":5,"price":35,"tool":"찜기","ing":["월광초","밀가루"],"tags":["배부름","중식","단 맛","문화적","불가사의함","작음"],"ban":[],"unlock":"내부 테스트용 요리 (정상 플레이로는 안 나옴)"},
+{"id":"ordinary-eat-me-cupcake","en":"Ordinary \"Eat Me\" Cupcake","ko":"\"평범한\" 컵케이크","dlc":"DLC 1","lv":2,"price":56,"tool":"찜기","ing":["계란","포도","크림"],"tags":["고급","단 맛","사진빨을 받음","문화적","과일맛"],"ban":[],"unlock":""}
 ]
