@@ -20,6 +20,7 @@ export default defineConfig({
       customCss: ['./src/styles/custom.css'],
       lastUpdated: true,
       head: [
+        { tag: 'script', content: "try{document.documentElement.dataset.lang=localStorage.getItem('mystia-lang')||'ko'}catch(e){}" },
         { tag: 'script', attrs: { src: '/site.js', defer: true } },
         ...(ADSENSE_ID
           ? [
