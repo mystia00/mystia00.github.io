@@ -138,7 +138,7 @@ a.chip { text-decoration: none; }
 .dtile { position: relative; }
 .tip {
   display: none; position: absolute; z-index: 30; top: calc(100% + 4px); left: 50%; transform: translateX(-50%);
-  width: max-content; max-width: 15rem; padding: 0.5rem 0.6rem; border-radius: 8px; text-align: left;
+  width: max-content; max-width: 19rem; padding: 0.5rem 0.6rem; border-radius: 8px; text-align: left;
   background: var(--sl-color-gray-7, var(--sl-color-black)); color: var(--sl-color-white);
   border: 1px solid var(--sl-color-gray-5); box-shadow: 0 6px 18px rgba(0,0,0,.25); pointer-events: none;
 }
@@ -178,3 +178,16 @@ body > .lang-sw { position: fixed; top: 0.6rem; right: 0.6rem; z-index: 50; back
 }
 .to-top.show { opacity: 1; visibility: visible; transform: none; }
 .to-top:hover { filter: brightness(1.1); }
+
+/* 특별손님 주문 멘트 */
+.tip-q { display: flex; flex-direction: column; gap: 0.3rem; margin-top: 0.45rem; padding-top: 0.45rem; border-top: 1px solid var(--sl-color-gray-5); }
+.tip-q .q { display: flex; gap: 0.35rem; align-items: flex-start; font-size: 0.72rem; line-height: 1.4; white-space: normal; }
+.tip-q .q img { width: 20px; height: 20px; border-radius: 50%; flex: none; margin: 0 !important; }
+.tip-q b { font-weight: 600; margin-right: 0.15rem; }
+.tip-q em, .ql em { font-style: normal; color: var(--sl-color-accent-high); font-size: 0.68rem; }
+td.order { font-size: 0.8rem; }
+.ql { display: block; line-height: 1.6; }
+details.orders { margin-top: 0.4rem !important; font-size: 0.8rem; }
+details.orders summary { cursor: pointer; color: var(--sl-color-gray-3); }
+details.orders ul { margin: 0.3rem 0 0; padding-left: 1rem; }
+details.orders li { margin: 0.1rem 0; }
