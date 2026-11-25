@@ -1,7 +1,7 @@
 ---
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
 import AdSlot from '../../components/AdSlot.astro';
-import { allDishes, dishName, dishIcon, portrait, fans, base, ingIcon, ingEn, custEn, type Dish } from '../../lib/match';
+import { allDishes, dishName, dishIcon, portrait, fans, base, ingIcon, ingEn, custEn, customerLines, type Dish } from '../../lib/match';
 
 export function getStaticPaths() {
   return allDishes.map((d) => ({ params: { id: d.id }, props: { dish: d } }));
@@ -64,13 +64,14 @@ const custUrl = (n: string) => `${base}/customers/favorites/#c-${encodeURICompon
   {who.length ? (
     <div class="finder-scroll">
       <table class="tagidx">
-        <thead><tr><th>손님</th><th class="num">맞는 태그</th><th>태그</th></tr></thead>
+        <thead><tr><th>손님</th><th class="num">맞는 태그</th><th>태그</th><th>이 요리로 받을 수 있는 주문</th></tr></thead>
         <tbody>
           {who.map((w) => (
             <tr>
               <td class="nm"><a class="who" href={custUrl(w.customer.name)}>{portrait(w.customer.name) && <img class="mini" src={portrait(w.customer.name)!} alt="" width="24" />}<span data-en={custEn(w.customer.name)}>{w.customer.name}</span></a></td>
               <td class="num">{w.hits.length}</td>
               <td>{w.hits.map((t) => <span class="chip like">{t}</span>)}</td>
+              <td class="order">{customerLines(w.customer.name).filter(([, t]) => dish.tags.includes(t)).map(([l, t]) => <span class="ql">“{l}” <span class="chip like">{t}</span></span>)}</td>
             </tr>
           ))}
         </tbody>
@@ -80,5 +81,5 @@ const custUrl = (n: string) => `${base}/customers/favorites/#c-${encodeURICompon
 
   <AdSlot />
 
-  <p class="credit">레시피 데이터와 아이콘: <a href="https://touhou-mystias-izakaya.fandom.com/wiki/Cuisines">Touhou Mystia's Izakaya Wiki</a>. 게임 그림 권리는 개발사 二色幽紫蝶에 있음. 손님 매칭은 이 사이트 자체 계산.</p>
+  <p class="credit">레시피 데이터와 아이콘: <a href="https://touhou-mystias-izakaya.fandom.com/wiki/Cuisines">Touhou Mystia's Izakaya Wiki</a>. 게임 그림 권리는 개발사 二色幽紫蝶에 있음. 손님 매칭은 이 사이트 자체 계산. 주문 멘트: <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2912088261">스팀 가이드 (KGP XD)</a>.</p>
 </StarlightPage>
