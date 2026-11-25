@@ -28,7 +28,7 @@ const short = (n: string) => (n.includes(' ') ? (western.includes(n) ? n.split('
               </div>
             </div>
             <div class="fav-dishes">
-              <div class="tiles">{recs.map((x) => <DishTile dish={x.dish} />)}</div>
+              <div class="tiles">{recs.map((x) => <DishTile dish={x.dish} who={c.name} />)}</div>
               <p class="fav-drinks"><span>술</span>{c.drink.map((t) => <span class="chip drk">{t}</span>)}</p>
               {customerLines(c.name).length > 0 && (
                 <details class="orders">
