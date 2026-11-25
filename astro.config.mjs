@@ -53,6 +53,7 @@ export default defineConfig({
           label: '공략',
           items: [
             { label: '영업 기본기', slug: 'guide/beginner' },
+            { label: '가성비 요리 모음', slug: 'guide/value-dishes' },
             { label: 'DLC 정리', slug: 'dlc' },
           ],
         },
