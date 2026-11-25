@@ -47,7 +47,7 @@ const drinkTags = [...new Set(data.flatMap((c) => c.drink))].sort(ko);
         {data.map((c) => (
           <tr
             data-name={`${c.name} ${c.en}`.toLowerCase()}
-            data-region={c.region}
+            data-region={[c.region, ...(c.where ?? [])].join('|')}
             data-like={c.like.join('|')}
             data-drink={c.drink.join('|')}
           >
@@ -58,7 +58,7 @@ const drinkTags = [...new Set(data.flatMap((c) => c.drink))].sort(ko);
             </td>
             <td class="rg">
               {c.region}
-              <span class="dlc">{c.dlc}</span>
+              <span class="dlc">{c.where ? c.where.length + '개 지역' : c.dlc}</span>
             </td>
             <td>{c.like.map((t) => <span class="chip like" data-t={t}>{t}</span>)}</td>
             <td>{c.dislike.map((t) => <span class="chip dis">{t}</span>)}</td>
@@ -95,7 +95,7 @@ const drinkTags = [...new Set(data.flatMap((c) => c.drink))].sort(ko);
           (!name || tr.dataset.name!.includes(name)) &&
           (!food.value || tr.dataset.like!.split('|').includes(food.value)) &&
           (!drink.value || tr.dataset.drink!.split('|').includes(drink.value)) &&
-          (!region.value || tr.dataset.region === region.value);
+          (!region.value || tr.dataset.region!.split('|').includes(region.value));
         tr.hidden = !ok;
         if (ok) shown++;
         for (const chip of tr.querySelectorAll<HTMLElement>('[data-t]')) {

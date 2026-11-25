@@ -25,6 +25,7 @@ const short = (n: string) => (n.includes(' ') ? (western.includes(n) ? n.split('
               <div>
                 <b data-en={c.en}>{c.name}</b>
                 <small>{c.dlc} · 예산 {c.budget}</small>
+                {c.where && <small class="where">출현: {c.where.join(', ')}</small>}
               </div>
             </div>
             <div class="fav-dishes">
