@@ -1,0 +1,15 @@
+---
+// 술 아이콘 칸. 마우스 올리면 태그 미리보기 (손님이 좋아하는 태그는 강조).
+interface Props { drink: { id: string; en: string; ko: string; price: number; tags: string[] }; want?: string[] }
+const { drink, want = [] } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+<span class="dtile md drk-tile" tabindex="0" aria-label={drink.ko}>
+  <span class="dicon" aria-hidden="true"><img src={`${base}/icons/drink-${drink.id}.webp`} alt="" loading="lazy" width="48" height="48" /></span>
+  <span class="dname"><span data-en={drink.en}>{drink.ko}</span></span>
+  <span class="tip" aria-hidden="true">
+    <b data-en={drink.en}>{drink.ko}</b>
+    <span class="tip-ing">{drink.tags.map((t) => <span class={`chip drk${want.includes(t) ? ' hit' : ''}`}>{t}</span>)}</span>
+    <small>{drink.price}엔</small>
+  </span>
+</span>
