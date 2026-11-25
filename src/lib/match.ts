@@ -57,3 +57,18 @@ export const ingEn = (ko: string) => ingMap[ko]?.en ?? ko;
 export const ingIcon = (ko: string) => (ingIcons[ko] && ingMap[ko] ? `${base}/icons/ingredients/${ingMap[ko].slug}.webp` : null);
 /** 손님 영문 이름 */
 export const custEn = (name: string) => allCustomers.find((c) => c.name === name)?.en ?? name;
+
+// ── 특별손님 주문 멘트 ──
+import orders from '../data/orders.json';
+const ord = orders as Record<string, [string, string][]>;
+/** 손님 주문 멘트 목록 [멘트, 태그] */
+export const customerLines = (name: string) => ord[name] ?? [];
+/** 이 요리로 응대 가능한 손님 멘트 (요리 태그와 맞는 주문, 선호 많이 맞는 손님 순) */
+export function quotes(d: Dish, n = 3): { customer: Customer; line: string; tag: string }[] {
+  return fans(d)
+    .flatMap((f) => {
+      const o = customerLines(f.customer.name).find(([, t]) => d.tags.includes(t));
+      return o ? [{ customer: f.customer, line: o[0], tag: o[1] }] : [];
+    })
+    .slice(0, n);
+}
