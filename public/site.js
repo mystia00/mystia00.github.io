@@ -59,7 +59,7 @@
     return text.replace(t, out);
   }
 
-  const SKIP = 'script,style,.ko-only,.en-only,[data-en],[data-no-tr],.pagefind-ui__results';
+  const SKIP = 'script,style,.ko-only,[data-en],[data-no-tr],.pagefind-ui__results';
   function walk(root, l) {
     if (root.nodeType === 3) return node(root, l);
     if (root.nodeType !== 1 || root.closest(SKIP)) return;
