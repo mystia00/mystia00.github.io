@@ -23,6 +23,8 @@ export default defineConfig({
       lastUpdated: true,
       head: [
         // 네이버 서치어드바이저 소유확인
+        // 클라우드플레어 웹 애널리틱스 (조회수, 쿠키 없음)
+        { tag: 'script', attrs: { defer: true, src: 'https://static.cloudflareinsights.com/beacon.min.js', 'data-cf-beacon': '{"token": "13c6bfd1fcbc4dcd929686e56983d831"}' } },
         { tag: 'meta', attrs: { name: 'naver-site-verification', content: 'cd64907d1f8313c62fc1114eb849106262746e97' } },
         { tag: 'script', content: "var a=/bot|crawl|spider|slurp|lighthouse/i.test(navigator.userAgent)||/^ko/i.test(navigator.language||'ko')?'ko':'en';try{document.documentElement.dataset.lang=localStorage.getItem('mystia-lang')||a}catch(e){document.documentElement.dataset.lang=a}" },
         { tag: 'script', attrs: { src: '/site.js', defer: true } },
