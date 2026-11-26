@@ -20,7 +20,7 @@ export default defineConfig({
       customCss: ['./src/styles/custom.css'],
       lastUpdated: true,
       head: [
-        { tag: 'script', content: "try{document.documentElement.dataset.lang=localStorage.getItem('mystia-lang')||'ko'}catch(e){}" },
+        { tag: 'script', content: "var a=/bot|crawl|spider|slurp|lighthouse/i.test(navigator.userAgent)||/^ko/i.test(navigator.language||'ko')?'ko':'en';try{document.documentElement.dataset.lang=localStorage.getItem('mystia-lang')||a}catch(e){document.documentElement.dataset.lang=a}" },
         { tag: 'script', attrs: { src: '/site.js', defer: true } },
         ...(ADSENSE_ID
           ? [
