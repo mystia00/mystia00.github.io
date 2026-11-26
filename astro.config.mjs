@@ -11,6 +11,8 @@ const ADSENSE_ID = process.env.PUBLIC_ADSENSE_ID ?? '';
 
 export default defineConfig({
   site: SITE,
+  // 예전 주소로 들어오면 첫 화면(손님별 추천 요리)으로
+  redirects: { '/customers/favorites': '/' },
   integrations: [
     starlight({
       title: '야작식당 공략노트',
@@ -39,7 +41,7 @@ export default defineConfig({
         {
           label: '데이터',
           items: [
-            { label: '손님별 추천 요리', slug: 'customers/favorites' },
+            { label: '손님별 추천 요리', link: '/' },
             { label: '요리 레시피 전체', slug: 'dishes' },
             { label: '희귀·특별 손님 전체표', slug: 'customers/rare' },
             { label: '요리 태그별 손님', slug: 'tags/food' },
