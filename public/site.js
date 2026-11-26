@@ -3,7 +3,9 @@
 // 글 본문은 .ko-only / .en-only 블록을 CSS로 숨김.
 (() => {
   const K = 'mystia-lang';
-  const get = () => { try { return localStorage.getItem(K) || 'ko'; } catch { return 'ko'; } };
+  // 저장된 설정이 없으면 브라우저 언어로 정함 (검색 로봇은 항상 국문)
+  const auto = () => (/bot|crawl|spider|slurp|lighthouse/i.test(navigator.userAgent) || /^ko/i.test(navigator.language || 'ko') ? 'ko' : 'en');
+  const get = () => { try { return localStorage.getItem(K) || auto(); } catch { return auto(); } };
   const set = (l) => { try { localStorage.setItem(K, l); } catch {} };
   document.documentElement.dataset.lang = get();
 
@@ -131,7 +133,7 @@
       const site = w('야작식당 공략노트') || '';
       const [page] = origTitle.split(' | ');
       const p = (t && t.dataset.titleEn) || w(page) || page;
-      document.title = site ? `${p} | ${site}` : p;
+      document.title = site && p !== site ? `${p} | ${site}` : p;
     } else {
       document.title = origTitle;
     }
