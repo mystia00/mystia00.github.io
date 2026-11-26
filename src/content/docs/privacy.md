@@ -22,7 +22,7 @@ description: 야작식당 공략노트 개인정보처리방침
 
 ## 문의
 
-연락처: (이메일 주소)
+연락처: [amparut17@gmail.com](mailto:amparut17@gmail.com)
 
 시행일: 2026년 11월 24일
 
@@ -44,7 +44,7 @@ The Site may use Google AdSense ads. Third-party vendors, including Google, may 
 
 ## Contact
 
-Contact: (email address)
+Contact: [amparut17@gmail.com](mailto:amparut17@gmail.com)
 
 Effective date: November 24, 2026
 
