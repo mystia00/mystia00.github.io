@@ -45,13 +45,14 @@ const drinkRecs = (want: string[]) => drinks
                 <a class="fav-name" href={customerUrl(c.name)}><b data-en={c.en}>{c.name}</b></a>
                 <small>{c.dlc} · 예산 {c.budget}</small>
                 <span class="who-tags">{c.like.map((t) => <span>{t}</span>)}</span>
-                {(c as any).where && <small class="where">등장: {(c as any).where.join(', ')}</small>}
+                {((c as any).where ?? []).length > 0 && <small class="where">등장: {(c as any).where.join(', ')}</small>}
               </div>
             </div>
             <div class="fav-dishes">
-              <div class="tiles">{recs.map((x) => <DishTile dish={x.dish} who={c.name} />)}</div>
-              <div class="tiles drk-tiles">{drinkRecs(c.drink).map((d) => <DrinkTile drink={d} want={c.drink} />)}</div>
-              <p class="fav-drinks"><span>술</span>{c.drink.map((t) => <span class="chip drk">{t}</span>)}</p>
+              {c.like.length === 0 && <p class="fav-tbd">아직 선호 태그 정보가 없는 손님. 정리 중.</p>}
+              {recs.length > 0 && <div class="tiles">{recs.map((x) => <DishTile dish={x.dish} who={c.name} />)}</div>}
+              {c.drink.length > 0 && <div class="tiles drk-tiles">{drinkRecs(c.drink).map((d) => <DrinkTile drink={d} want={c.drink} />)}</div>}
+              {c.drink.length > 0 && <p class="fav-drinks"><span>술</span>{c.drink.map((t) => <span class="chip drk">{t}</span>)}</p>}
               {customerLines(c.name).length > 0 && (
                 <details class="orders" open>
                   <summary>주문 멘트 {customerLines(c.name).length}개</summary>
