@@ -73,3 +73,22 @@ export function quotes(d: Dish, n = 3, first?: string): { customer: Customer; li
     })
     .slice(0, n);
 }
+
+// ── 손님 개별 페이지 ──
+import drinkData from '../data/drinks.json';
+export type Drink = (typeof drinkData)[number];
+export const allDrinks = drinkData as Drink[];
+export const customerSlug = (c: { en: string }) => c.en.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+/** 손님 개별 페이지 주소 */
+export const customerUrl = (name: string) => {
+  const c = allCustomers.find((x) => x.name === name);
+  return c ? `${base}/customers/${customerSlug(c)}/` : `${base}/`;
+};
+/** 손님 술 태그를 많이 맞추는 술 (같으면 싼 것부터) */
+export const drinkRecs = (want: string[], n = 4) =>
+  allDrinks
+    .map((d) => ({ d, s: d.tags.filter((t) => want.includes(t)).length }))
+    .filter((x) => x.s > 0)
+    .sort((a, b) => b.s - a.s || a.d.price - b.d.price)
+    .slice(0, n)
+    .map((x) => x.d);
