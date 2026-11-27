@@ -8,7 +8,7 @@ const SITE = 'https://mystiaguide.com';
 
 // ★ 애드센스 번호('ca-pub-...')는 깃헙 저장소 Settings › Variables에 PUBLIC_ADSENSE_ID로 넣어요.
 //    비어 있으면 광고 스크립트를 넣지 않아요.
-const ADSENSE_ID = process.env.PUBLIC_ADSENSE_ID ?? '';
+const ADSENSE_ID = process.env.PUBLIC_ADSENSE_ID || 'ca-pub-7658881793858293';
 
 export default defineConfig({
   site: SITE,
