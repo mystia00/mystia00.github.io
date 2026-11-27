@@ -65,6 +65,15 @@ const ord = orders as Record<string, [string, string][]>;
 export const customerLines = (name: string) => ord[name] ?? [];
 /** 이 요리로 응대 가능한 손님 멘트 (요리 태그와 맞는 주문, 선호 많이 맞는 손님 순) */
 export function quotes(d: Dish, n = 3, first?: string): { customer: Customer; line: string; tag: string }[] {
+  // 특정 손님 줄에서는 그 손님 대사 중 이 요리 태그와 맞는 것만
+  if (first) {
+    const c = allCustomers.find((x) => x.name === first);
+    if (!c) return [];
+    return customerLines(first)
+      .filter(([, t]) => d.tags.includes(t))
+      .slice(0, n)
+      .map(([line, tag]) => ({ customer: c, line, tag }));
+  }
   return fans(d)
     .sort((a, b) => Number(b.customer.name === first) - Number(a.customer.name === first))
     .flatMap((f) => {
