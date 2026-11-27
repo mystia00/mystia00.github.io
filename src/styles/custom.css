@@ -325,3 +325,9 @@ a.fav-name:hover b { text-decoration: underline; }
 .sl-markdown-content .who-tags > * { margin-top: 0; }
 .who-tags span { font-size: .68rem; line-height: 1.5; padding: 0 .4rem; border-radius: 999px; background: var(--sl-color-accent-low); color: var(--sl-color-accent-high); white-space: nowrap; }
 .fav-region { scroll-margin-top: calc(var(--sl-nav-height) + 6.5rem); }
+
+/* 정보 없는 손님 */
+.fav-tbd { color: var(--sl-color-gray-3); font-size: .85rem; }
+
+/* 휴대폰: 사이트 이름 안 잘리게 */
+@media (max-width: 49.99rem) { .site-title { font-size: 1rem; white-space: nowrap; } }
