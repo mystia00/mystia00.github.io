@@ -267,3 +267,15 @@ details.orders[open] summary { margin-bottom: 0.2rem; }
 /* 국문/영문 본문 블록 */
 html[data-lang='en'] .ko-only { display: none !important; }
 html:not([data-lang='en']) .en-only { display: none !important; }
+
+/* 손님 개별 페이지 */
+.cust-head { display: flex; gap: 1rem; align-items: center; margin-bottom: 0.5rem; }
+.cust-head p { margin: 0; }
+.cust-face { width: 96px; height: 96px; image-rendering: pixelated; border-radius: 12px; background: var(--sl-color-gray-6); flex: none; }
+.cust-name { font-size: 1.4rem; }
+.cust-where { display: flex; flex-wrap: wrap; gap: 0.25rem; margin-top: 0.4rem !important; }
+.cust-lines { list-style: none; padding: 0; }
+.cust-lines li { margin: 0.3rem 0; }
+.cust-nav { display: flex; justify-content: space-between; gap: 0.5rem; margin-top: 2rem; flex-wrap: wrap; }
+a.fav-name { color: inherit; text-decoration: none; }
+a.fav-name:hover b { text-decoration: underline; }
