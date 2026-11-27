@@ -282,3 +282,7 @@ a.fav-name:hover b { text-decoration: underline; }
 
 /* 요리 칸 줄맞춤 (본문 기본 여백이 첫 칸 빼고 붙는 것 막기) */
 .sl-markdown-content .tiles > * { margin-top: 0 !important; }
+
+/* 휴대폰용 언어 버튼 (헤더 검색창 옆) */
+.lang-sw.m { display: none; margin-inline-start: 0.5rem; }
+@media (max-width: 49.99rem) { .lang-sw.m { display: inline-flex; } }
