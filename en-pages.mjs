@@ -153,6 +153,7 @@ function toEn(html, urlPath, tr) {
   html = html.replace(/(<meta property="og:title" content=")[^"]*"/, `$1${encAttr(titleEn || SITE_EN)}"`);
   html = html.replace(/(<meta property="og:site_name" content=")[^"]*"/, `$1${encAttr(SITE_EN)}"`);
   html = html.replace(/(<meta property="og:locale" content=")[^"]*"/, '$1en_US"');
+  html = html.split(`${SITE}/og.png`).join(`${SITE}/og-en.png`);
   const desc = `${titleEn || SITE_EN} — Touhou Mystia's Izakaya guide: guests' favorite dishes and drinks, recipes, events and DLC tips.`;
   html = html.replace(/(<meta name="description" content=")[^"]*"/, `$1${encAttr(desc)}"`);
   html = html.replace(/(<meta property="og:description" content=")[^"]*"/, `$1${encAttr(desc)}"`);
