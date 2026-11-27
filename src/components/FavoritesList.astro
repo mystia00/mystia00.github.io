@@ -22,6 +22,12 @@ const drinkRecs = (want: string[]) => drinks
   .slice(0, 4)
   .map((x) => x.d);
 ---
+{!only && (
+  <div class="fav-tools">
+    <input type="search" class="fav-search" placeholder="손님 이름 검색" aria-label="손님 이름 검색" autocomplete="off" />
+    <nav class="fav-jump" aria-label="지역 바로가기">{groups.map(([r]) => <a href={`#r-${r.replace(/\s+/g, '-')}`}>{r}</a>)}</nav>
+  </div>
+)}
 <RegionMap current={only} />
 {groups.map(([r, list]) => (
   <section class="fav-region">
@@ -58,3 +64,23 @@ const drinkRecs = (want: string[]) => drinks
     </div>
   </section>
 ))}
+
+<p class="fav-none" hidden>검색 결과 없음</p>
+<script>
+  const box = document.querySelector<HTMLInputElement>('.fav-search');
+  if (box) {
+    const rows = [...document.querySelectorAll<HTMLElement>('.fav-row')];
+    const secs = [...document.querySelectorAll<HTMLElement>('.fav-region')];
+    const none = document.querySelector<HTMLElement>('.fav-none');
+    const norm = (s: string) => s.toLowerCase().replace(/\s+/g, '');
+    const key = (r: HTMLElement) => norm(r.id + ' ' + (r.querySelector('.fav-name')?.textContent || '') + ' ' + (r.querySelector('.fav-name b')?.getAttribute('data-en') || ''));
+    box.addEventListener('input', () => {
+      const q = norm(box.value);
+      rows.forEach((r) => { r.hidden = !!q && !key(r).includes(q); });
+      let any = false;
+      secs.forEach((s) => { const v = s.querySelector('.fav-row:not([hidden])'); s.hidden = !v; if (v) any = true; });
+      if (none) none.hidden = any;
+      if (q) document.querySelector('.fav-region:not([hidden])')?.scrollIntoView({ block: 'start' });
+    });
+  }
+</script>
