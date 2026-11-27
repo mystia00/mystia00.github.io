@@ -205,6 +205,16 @@
     onScroll();
 
     apply(LANG);
+
+    // 휴대폰에서 카드로 보이게 표 칸마다 제목 붙이기
+    document.querySelectorAll('.sl-markdown-content table').forEach((t) => {
+      const hs = [...t.querySelectorAll('thead th')].map((th) => th.textContent.trim());
+      if (!hs.length) return;
+      t.classList.add('cardable');
+      t.querySelectorAll('tbody tr').forEach((tr) => {
+        [...tr.children].forEach((td, i) => { if (hs[i]) td.setAttribute('data-label', hs[i]); });
+      });
+    });
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
