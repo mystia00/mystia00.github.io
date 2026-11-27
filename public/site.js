@@ -1,13 +1,19 @@
 // 영문/국문 전환 + 맨 위로 버튼
-// 영문일 때: data-en 붙은 이름은 그대로 교체, 나머지 글자는 /i18n.json 사전으로 교체.
-// 글 본문은 .ko-only / .en-only 블록을 CSS로 숨김.
+// 영문 페이지(/en/...)는 빌드 때 이미 번역돼 있음. 여기선 버튼으로 주소를 오가고,
+// 화면에서 새로 생기는 글자(검색 결과 개수 등)만 /i18n.json 사전으로 바꿈.
 (() => {
   const K = 'mystia-lang';
-  // 저장된 설정이 없으면 브라우저 언어로 정함 (검색 로봇은 항상 국문)
-  const auto = () => (/bot|crawl|spider|slurp|lighthouse/i.test(navigator.userAgent) || /^ko/i.test(navigator.language || 'ko') ? 'ko' : 'en');
-  const get = () => { try { return localStorage.getItem(K) || auto(); } catch { return auto(); } };
   const set = (l) => { try { localStorage.setItem(K, l); } catch {} };
-  document.documentElement.dataset.lang = get();
+  // 언어는 주소로 정해짐: /en/... 은 영문, 나머지는 국문
+  const P = location.pathname;
+  const IS_EN = P === '/en' || P.startsWith('/en/');
+  const LANG = IS_EN ? 'en' : 'ko';
+  const other = (l) => {
+    const rest = location.search + location.hash;
+    if (l === 'en') return IS_EN ? null : '/en' + P + rest;
+    return IS_EN ? (P.slice(3) || '/') + rest : null;
+  };
+  document.documentElement.dataset.lang = LANG;
 
   let dict = null;
   let loading = null;
@@ -61,7 +67,7 @@
     return text.replace(t, out);
   }
 
-  const SKIP = 'script,style,.ko-only,[data-en],[data-no-tr],.pagefind-ui__results';
+  const SKIP = 'script,style,.ko-only,[data-no-tr],.pagefind-ui__results';
   function walk(root, l) {
     if (root.nodeType === 3) return node(root, l);
     if (root.nodeType !== 1 || root.closest(SKIP)) return;
@@ -162,9 +168,9 @@
     }
   }
 
-  function init() {
+  function makeSwitch(extra) {
     const sw = document.createElement('div');
-    sw.className = 'lang-sw';
+    sw.className = 'lang-sw' + (extra ? ' ' + extra : '');
     sw.setAttribute('role', 'group');
     sw.setAttribute('aria-label', '언어 / Language');
     sw.setAttribute('data-no-tr', '');
@@ -173,10 +179,19 @@
       const b = e.target.closest('button');
       if (!b) return;
       set(b.dataset.l);
-      apply(b.dataset.l);
+      const to = other(b.dataset.l);
+      if (to) location.href = to;
     });
-    const slot = document.querySelector('header .right-group') || document.querySelector('header');
-    if (slot) slot.prepend(sw); else document.body.append(sw);
+    return sw;
+  }
+
+  function init() {
+    const slot = document.querySelector('header .right-group');
+    if (slot) slot.prepend(makeSwitch());
+    // 휴대폰: 오른쪽 메뉴가 숨겨지니 검색창 옆에 하나 더
+    const search = document.querySelector('header site-search');
+    if (search && search.parentElement) search.parentElement.append(makeSwitch('m'));
+    else if (!slot) document.body.append(makeSwitch());
 
     const top = document.createElement('button');
     top.type = 'button';
@@ -189,7 +204,7 @@
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
 
-    apply(get());
+    apply(LANG);
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
