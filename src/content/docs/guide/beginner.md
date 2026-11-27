@@ -25,7 +25,7 @@ description: 동방야작식당 스펠 카드 발동 조건, 처벌 카드, 리�
 1. 대사로 요구한 태그 맞추기
 2. 요리 **선호 요리 태그** + 술 **선호 술 태그** 합쳐 **4개 이상**
 
-둘 다 채우면 보상 스펠 카드 발동. 손님별 태그는 [희귀 손님 전체표](/customers/rare/), 딱 맞는 요리는 [손님별 추천 요리](/customers/favorites/) 참고. 밤참새 조리 도구로 만든 요리는 1번(요구 태그) 무시 가능.
+둘 다 채우면 보상 스펠 카드 발동. 손님별 태그는 [희귀 손님 전체표](/customers/rare/), 딱 맞는 요리는 [손님별 추천 요리](/) 참고. 밤참새 조리 도구로 만든 요리는 1번(요구 태그) 무시 가능.
 
 ### 처벌 카드 발동 조건
 
@@ -94,7 +94,7 @@ Shops sell different ingredients at different times. Early on, **fixing your dai
 1. Match the tag they ask for in their line
 2. The dish's **liked food tags** + the drink's **liked drink tags** add up to **4 or more**
 
-Meet both and the reward spell card fires. See the [rare guest table](/customers/rare/) for each guest's tags and [Best Dishes per Guest](/customers/favorites/) for perfect dishes. Dishes made with Night Sparrow cooking tools can skip condition 1 (the requested tag).
+Meet both and the reward spell card fires. See the [rare guest table](/customers/rare/) for each guest's tags and [Best Dishes per Guest](/) for perfect dishes. Dishes made with Night Sparrow cooking tools can skip condition 1 (the requested tag).
 
 ### When punishment cards fire
 

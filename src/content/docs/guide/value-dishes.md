@@ -32,7 +32,7 @@ description: 동방야작식당 재료 적게 들고 태그 많이 채우는 가
 | <img class="ico" src="/icons/dishes/tangyuan.webp" alt="" width="32" height="32" /><img class="ico" src="/icons/dishes/dumplings.webp" alt="" width="32" height="32" /> [탕위안](/dishes/tangyuan/), [물만두](/dishes/dumplings/) | 찹쌀 / 밀가루 | 중식 좋아하는 손님한테 단독으로도 잘 먹힘. 추가 재료 얹어서 응용 | 중반~ |
 
 
-손님별로 딱 맞는 요리는 [손님별 추천 요리](/customers/favorites/)에서 확인.
+손님별로 딱 맞는 요리는 [손님별 추천 요리](/)에서 확인.
 
 </div>
 <div class="en-only">
@@ -61,6 +61,6 @@ Expensive, fancy dishes are overrated. They sell slowly, are hard to fit omakase
 | <img class="ico" src="/icons/dishes/falling-blossoms.webp" alt="" width="32" height="32" /> [Falling Blossoms](/dishes/falling-blossoms/) | 1 premium tuna | Top-tier premium cutting-board dish. One ingredient gives a pile of tags; the only thing guests might dislike is Greasy. Works as a base like Rice Ball | Late game |
 | <img class="ico" src="/icons/dishes/tangyuan.webp" alt="" width="32" height="32" /> <img class="ico" src="/icons/dishes/dumplings.webp" alt="" width="32" height="32" /> [Tangyuan](/dishes/tangyuan/), [Dumplings](/dishes/dumplings/) | Glutinous rice / flour | Guests who like Chinese food eat them on their own. Add extras to adapt | Mid game on |
 
-See [Best Dishes per Guest](/customers/favorites/) for each guest's perfect dishes.
+See [Best Dishes per Guest](/) for each guest's perfect dishes.
 
 </div>
