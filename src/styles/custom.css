@@ -286,3 +286,35 @@ a.fav-name:hover b { text-decoration: underline; }
 /* 휴대폰용 언어 버튼 (헤더 검색창 옆) */
 .lang-sw.m { display: none; margin-inline-start: 0.5rem; }
 @media (max-width: 49.99rem) { .lang-sw.m { display: inline-flex; } }
+
+/* 홈: 이름 검색 + 지역 바로가기 (위에 붙어 다님) */
+.fav-tools { position: sticky; top: calc(var(--sl-nav-height) + .25rem); z-index: 6; background: var(--sl-color-bg); padding: .5rem 0; margin-bottom: .5rem; display: flex; flex-direction: column; gap: .45rem; border-bottom: 1px solid var(--sl-color-gray-5); }
+.sl-markdown-content .fav-tools > *, .sl-markdown-content .fav-jump > * { margin-top: 0; }
+.fav-search { width: 100%; padding: .5rem .8rem; border-radius: .5rem; border: 1px solid var(--sl-color-gray-4); background: var(--sl-color-gray-6); color: var(--sl-color-white); font-size: 1rem; }
+.fav-search:focus { outline: 2px solid var(--sl-color-accent); outline-offset: 1px; }
+.fav-jump { display: flex; gap: .4rem; overflow-x: auto; white-space: nowrap; scrollbar-width: thin; padding-bottom: 2px; }
+.fav-jump a { flex: none; padding: .25rem .7rem; border-radius: 999px; border: 1px solid var(--sl-color-gray-4); text-decoration: none; font-size: .85rem; color: var(--sl-color-white); background: var(--sl-color-gray-6); }
+.fav-jump a:hover { border-color: var(--sl-color-accent); color: var(--sl-color-accent-high); }
+.fav-none[hidden] { display: none; }
+.fav-region h2 { scroll-margin-top: calc(var(--sl-nav-height) + 6.5rem); }
+
+/* 휴대폰: 지도 점 크게, 점 위치 항상 보이게 */
+@media (pointer: coarse), (max-width: 49.99rem) {
+  .rmap .spot { width: 44px; height: 44px; }
+  .rmap .spot .spot-ring { inset: 9px; border-color: rgba(255, 214, 90, .85); box-shadow: 0 0 8px rgba(255, 214, 90, .6); }
+}
+
+/* 휴대폰: 표를 카드로 */
+@media (max-width: 49.99rem) {
+  .sl-markdown-content table.cardable { display: block; border: 0; overflow: visible; }
+  .sl-markdown-content table.cardable thead { display: none; }
+  .sl-markdown-content table.cardable tbody { display: block; }
+  .sl-markdown-content table.cardable tr { display: block; margin: 0 0 .7rem; padding: .5rem .8rem; border: 1px solid var(--sl-color-gray-5); border-radius: .6rem; background: var(--sl-color-gray-6); }
+  .sl-markdown-content table.cardable tr[hidden] { display: none; }
+  .sl-markdown-content table.cardable td { display: grid; grid-template-columns: 5.5rem 1fr; gap: .6rem; align-items: start; padding: .3rem 0; margin: 0; border: 0; text-align: start; background: none; }
+  .sl-markdown-content table.cardable td + td { border-top: 1px dashed var(--sl-color-gray-5); }
+  .sl-markdown-content table.cardable td::before { content: attr(data-label); font-weight: 600; font-size: .8rem; color: var(--sl-color-gray-3); }
+  .sl-markdown-content table.cardable td:not([data-label]) { display: block; }
+  .sl-markdown-content table.cardable td:not([data-label])::before { content: none; }
+  .sl-markdown-content table.cardable td:first-child { font-weight: 700; }
+}
