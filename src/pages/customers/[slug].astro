@@ -1,0 +1,80 @@
+---
+// 손님 한 명당 페이지 하나. 추천 요리·술, 태그, 예산, 등장 지역, 주문 멘트.
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import DishTile from '../../components/DishTile.astro';
+import DrinkTile from '../../components/DrinkTile.astro';
+import AdSlot from '../../components/AdSlot.astro';
+import { allCustomers, recommend, portrait, customerLines, customerSlug, drinkRecs, base, type Customer } from '../../lib/match';
+import { regions, regionUrl } from '../../lib/regions';
+
+export function getStaticPaths() {
+  return allCustomers.map((c) => ({ params: { slug: customerSlug(c) }, props: { c } }));
+}
+const { c } = Astro.props as { c: Customer };
+const recs = recommend(c, 12);
+const drinks = drinkRecs(c.drink, 6);
+const lines = customerLines(c.name);
+const where: string[] = (c as any).where ?? [c.region];
+const regionNames = new Set(regions.map((r) => r.name));
+const tagLink = (t: string) => `${base}/dishes/?tag=${encodeURIComponent(t)}`;
+const idx = allCustomers.indexOf(c);
+const prev = allCustomers[idx - 1];
+const next = allCustomers[idx + 1];
+const pageUrl = (x: Customer) => `${base}/customers/${customerSlug(x)}/`;
+---
+<StarlightPage
+  frontmatter={{
+    title: `${c.name} 추천 요리·술`,
+    description: `동방야작식당 ${c.name}(${c.en}) 공략. 좋아하는 요리 태그 ${c.like.join(', ')} / 싫어하는 태그 ${c.dislike.join(', ') || '없음'} / 술 태그 ${c.drink.join(', ')} / 예산 ${c.budget}엔. 딱 맞는 요리·술과 주문 멘트.`,
+    tableOfContents: false,
+  }}
+>
+  <span hidden data-title-en={`${c.en} — Best Dishes & Drinks`}></span>
+  <div class="cust-head">
+    {portrait(c.name) && <img class="cust-face" src={portrait(c.name)!} alt="" width="96" height="96" />}
+    <div>
+      <p class="cust-name"><b data-en={c.en}>{c.name}</b>{c.special && <span class="badge">특별</span>}</p>
+      <p><small>{c.dlc} · 예산 {c.budget}</small></p>
+      <p class="cust-where">
+        {where.map((r) => (regionNames.has(r) ? <a class="chip" href={regionUrl(r)}>{r}</a> : <span class="chip">{r}</span>))}
+      </p>
+    </div>
+  </div>
+
+  <h2>좋아하는 요리 태그</h2>
+  <p>{c.like.map((t) => <a class="chip like" href={tagLink(t)}>{t}</a>)}</p>
+  {c.dislike.length > 0 && (
+    <>
+      <h2>싫어하는 요리 태그</h2>
+      <p>{c.dislike.map((t) => <span class="chip dis">{t}</span>)}</p>
+    </>
+  )}
+  <h2>술 태그</h2>
+  <p>{c.drink.map((t) => <span class="chip drk">{t}</span>)}</p>
+
+  <h2>추천 요리</h2>
+  <p class="hint">선호 태그를 많이 맞추고 불호 태그는 없는 요리. 많이 맞는 순, 같으면 싼 순.</p>
+  <div class="tiles">{recs.map((x) => <DishTile dish={x.dish} who={c.name} />)}</div>
+
+  <h2>추천 술</h2>
+  <div class="tiles">{drinks.map((d) => <DrinkTile drink={d} want={c.drink} />)}</div>
+
+  {lines.length > 0 && (
+    <>
+      <h2>주문 멘트</h2>
+      <ul class="cust-lines">
+        {lines.map(([l, t]) => (
+          <li>“{l}” <a class="chip like" href={tagLink(t)}>{t}</a></li>
+        ))}
+      </ul>
+    </>
+  )}
+
+  <AdSlot />
+
+  <nav class="cust-nav">
+    {prev ? <a href={pageUrl(prev)}>← <span data-en={prev.en}>{prev.name}</span></a> : <span></span>}
+    <a href={`${base}/#c-${encodeURIComponent(c.name)}`}>손님 전체 보기</a>
+    {next ? <a href={pageUrl(next)}><span data-en={next.en}>{next.name}</span> →</a> : <span></span>}
+  </nav>
+</StarlightPage>
