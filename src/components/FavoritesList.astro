@@ -44,6 +44,7 @@ const drinkRecs = (want: string[]) => drinks
               <div>
                 <a class="fav-name" href={customerUrl(c.name)}><b data-en={c.en}>{c.name}</b></a>
                 <small>{c.dlc} · 예산 {c.budget}</small>
+                <span class="who-tags">{c.like.map((t) => <span>{t}</span>)}</span>
                 {(c as any).where && <small class="where">등장: {(c as any).where.join(', ')}</small>}
               </div>
             </div>
