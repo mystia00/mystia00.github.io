@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import enPages from './en-pages.mjs';
 
 // ★ 도메인을 사면 아래 주소를 내 도메인으로 바꾸세요. 예: 'https://mystia.kr'
 const SITE = 'https://mystiaguide.com';
@@ -27,7 +28,8 @@ export default defineConfig({
         // 클라우드플레어 웹 애널리틱스 (조회수, 쿠키 없음)
         { tag: 'script', attrs: { defer: true, src: 'https://static.cloudflareinsights.com/beacon.min.js', 'data-cf-beacon': '{"token": "13c6bfd1fcbc4dcd929686e56983d831"}' } },
         { tag: 'meta', attrs: { name: 'naver-site-verification', content: 'cd64907d1f8313c62fc1114eb849106262746e97' } },
-        { tag: 'script', content: "var a=/bot|crawl|spider|slurp|lighthouse/i.test(navigator.userAgent)||/^ko/i.test(navigator.language||'ko')?'ko':'en';try{document.documentElement.dataset.lang=localStorage.getItem('mystia-lang')||a}catch(e){document.documentElement.dataset.lang=a}" },
+        // 저장된 언어(없으면 브라우저 언어)에 맞는 주소로 보내기. 검색 로봇은 제외
+        { tag: 'script', content: "(function(){var p=location.pathname,en=p==='/en'||p.indexOf('/en/')===0,s=null;try{s=localStorage.getItem('mystia-lang')}catch(e){}var a=s||(/bot|crawl|spider|slurp|lighthouse/i.test(navigator.userAgent)||/^ko/i.test(navigator.language||'ko')?null:'en');var q=location.search+location.hash;if(a==='en'&&!en){location.replace('/en'+p+q);return}if(s==='ko'&&en){location.replace((p.slice(3)||'/')+q);return}document.documentElement.dataset.lang=en?'en':'ko'})()" },
         { tag: 'script', attrs: { src: '/site.js', defer: true } },
         ...(ADSENSE_ID
           ? [
@@ -74,5 +76,7 @@ export default defineConfig({
         },
       ],
     }),
+    // 빌드 후 /en/ 영문 페이지 만들기
+    enPages(),
   ],
 });
