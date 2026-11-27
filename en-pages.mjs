@@ -95,6 +95,37 @@ function removeByClass(html, name) {
   }
 }
 
+
+/** 목차(오른쪽 "이 페이지에서")에서 페이지에 없는 제목을 가리키는 항목 지우기 */
+function pruneToc(html) {
+  const ids = new Set([...html.matchAll(/\bid="([^"]+)"/g)].map((m) => dec(m[1])));
+  const re = /<li\b[^>]*>\s*<a href="#([^"]+)"/g;
+  let guard = 0;
+  for (;;) {
+    re.lastIndex = 0;
+    let m;
+    let hit = null;
+    while ((m = re.exec(html))) {
+      let id = dec(m[1]);
+      try { id = decodeURIComponent(id); } catch {}
+      if (id !== '_top' && !ids.has(id)) { hit = m; break; }
+    }
+    if (!hit || guard++ > 500) return html;
+    const start = hit.index;
+    const tagRe = /<(\/?)li\b[^>]*>/gi;
+    tagRe.lastIndex = start + 3;
+    let depth = 1;
+    let end = -1;
+    let x;
+    while ((x = tagRe.exec(html))) {
+      depth += x[1] ? -1 : 1;
+      if (depth === 0) { end = x.index + x[0].length; break; }
+    }
+    if (end < 0) return html;
+    html = html.slice(0, start) + html.slice(end);
+  }
+}
+
 const isPageHref = (h) => {
   if (!h.startsWith('/') || h.startsWith('//')) return false;
   if (/^\/(en|_astro|pagefind|icons)(\/|$)/.test(h)) return false;
@@ -104,7 +135,7 @@ const isPageHref = (h) => {
 
 function toEn(html, urlPath, tr) {
   const enUrl = '/en' + urlPath;
-  html = removeByClass(html, 'ko-only');
+  html = pruneToc(removeByClass(html, 'ko-only'));
 
   // <html lang>
   html = html.replace(/<html([^>]*?)\blang="ko"/, '<html$1lang="en" data-lang="en"');
@@ -160,7 +191,7 @@ function hreflang(urlPath) {
   );
 }
 
-export { toEn, makeTr, removeByClass };
+export { toEn, makeTr, removeByClass, pruneToc };
 export default function enPages() {
   return {
     name: 'en-pages',
@@ -178,7 +209,7 @@ export default function enPages() {
           if (/http-equiv="refresh"/i.test(html) || rel === '404.html') continue;
           const urlPath = '/' + rel.replace(/index\.html$/, '');
           const en = toEn(html, urlPath, tr).replace('</head>', hreflang(urlPath) + '</head>');
-          await fs.writeFile(f, removeByClass(html, 'en-only').replace('</head>', hreflang(urlPath) + '</head>'));
+          await fs.writeFile(f, pruneToc(removeByClass(html, 'en-only')).replace('</head>', hreflang(urlPath) + '</head>'));
           const out = path.join(root, 'en', ...rel.split('/'));
           await fs.mkdir(path.dirname(out), { recursive: true });
           await fs.writeFile(out, en);
