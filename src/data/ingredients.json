@@ -1,61 +1,238 @@
 {
-"해초": {"slug":"Seaweed","en":"Seaweed"},
-"칠성장어": {"slug":"Lamprey","en":"Lamprey"},
-"무": {"slug":"Radish","en":"Radish"},
-"두부": {"slug":"Tofu","en":"Tofu"},
-"송어": {"slug":"Trout","en":"Trout"},
-"이슬": {"slug":"Dew","en":"Dew"},
-"계란": {"slug":"Egg","en":"Egg"},
-"고추": {"slug":"Chili","en":"Chili"},
-"버섯": {"slug":"Mushroom","en":"Mushroom"},
-"돼지고기": {"slug":"Pork","en":"Pork"},
-"매미 허물": {"slug":"CicadaSlough","en":"Cicada Slough"},
-"감자": {"slug":"Potato","en":"Potato"},
-"벌꿀": {"slug":"Honey","en":"Honey"},
-"소고기": {"slug":"Beef","en":"Beef"},
-"양파": {"slug":"Onion","en":"Onion"},
-"호박": {"slug":"Pumpkin","en":"Pumpkin"},
-"버터": {"slug":"Butter","en":"Butter"},
-"우담바라": {"slug":"Udumbara","en":"Udumbara"},
-"멧돼지 고기": {"slug":"BoarMeat","en":"Boar Meat"},
-"은행": {"slug":"GinkgoNut","en":"Ginkgo Nut"},
-"흑돼지 고기": {"slug":"IbericoPork","en":"Iberico Pork"},
-"죽순": {"slug":"BambooShoot","en":"Bamboo Shoot"},
-"복어": {"slug":"Pufferfish","en":"Pufferfish"},
-"와규 소고기": {"slug":"WagyuBeef","en":"Wagyu Beef"},
-"복숭아": {"slug":"Peach","en":"Peach"},
-"얼음": {"slug":"IceCube","en":"Ice Cube"},
-"특상급 참치": {"slug":"PremiumTuna","en":"Premium Tuna"},
-"새우": {"slug":"Shrimp","en":"Shrimp"},
-"찹쌀": {"slug":"StickyRice","en":"Sticky Rice"},
-"밀가루": {"slug":"Flour","en":"Flour"},
-"연어": {"slug":"Salmon","en":"Salmon"},
-"참치": {"slug":"Tuna","en":"Tuna"},
-"송로버섯": {"slug":"Truffle","en":"Truffle"},
-"사슴고기": {"slug":"Venison","en":"Venison"},
-"월광초": {"slug":"LunarHerb","en":"Lunar Herb"},
-"대나무": {"slug":"Bamboo","en":"Bamboo"},
-"크림": {"slug":"Cream","en":"Cream"},
-"오이": {"slug":"Cucumber","en":"Cucumber"},
-"블랙솔트": {"slug":"BlackSalt","en":"Black Salt"},
-"문어": {"slug":"Octopus","en":"Octopus"},
-"게": {"slug":"Crab","en":"Crab"},
-"성게": {"slug":"SeaUrchin","en":"Sea Urchin"},
-"포도": {"slug":"Grapes","en":"Grapes"},
-"치즈": {"slug":"Cheese","en":"Cheese"},
-"레몬": {"slug":"Lemon","en":"Lemon"},
-"고구마": {"slug":"SweetPotato","en":"Sweet Potato"},
-"잣": {"slug":"PineNut","en":"Pine Nut"},
-"연밥": {"slug":"LotusSeed","en":"Lotus Seed"},
-"병체련": {"slug":"BingdiLotus","en":"Bingdi Lotus"},
-"밤": {"slug":"Chestnut","en":"Chestnut"},
-"토마토": {"slug":"Tomato","en":"Tomato"},
-"꽃": {"slug":"Flower","en":"Flower"},
-"매실": {"slug":"Plum","en":"Plum"},
-"팥": {"slug":"RedBean","en":"Red Bean"},
-"참죽": {"slug":"RedToon","en":"Red Toon"},
-"브로콜리": {"slug":"Broccoli","en":"Broccoli"},
-"코코아": {"slug":"CocoaBean","en":"Cocoa Bean"},
-"애모": {"slug":"CreepingFig","en":"Creeping Fig"},
-"흰목이버섯": {"slug":"SnowFungus","en":"Snow Fungus"}
+  "해초": {
+    "slug": "Seaweed",
+    "en": "Seaweed"
+  },
+  "칠성장어": {
+    "slug": "Lamprey",
+    "en": "Lamprey"
+  },
+  "무": {
+    "slug": "Radish",
+    "en": "Radish"
+  },
+  "두부": {
+    "slug": "Tofu",
+    "en": "Tofu"
+  },
+  "송어": {
+    "slug": "Trout",
+    "en": "Trout"
+  },
+  "이슬": {
+    "slug": "Dew",
+    "en": "Dew"
+  },
+  "계란": {
+    "slug": "Egg",
+    "en": "Egg"
+  },
+  "고추": {
+    "slug": "Chili",
+    "en": "Chili"
+  },
+  "버섯": {
+    "slug": "Mushroom",
+    "en": "Mushroom"
+  },
+  "돼지고기": {
+    "slug": "Pork",
+    "en": "Pork"
+  },
+  "매미 허물": {
+    "slug": "CicadaSlough",
+    "en": "Cicada Slough"
+  },
+  "감자": {
+    "slug": "Potato",
+    "en": "Potato"
+  },
+  "벌꿀": {
+    "slug": "Honey",
+    "en": "Honey"
+  },
+  "소고기": {
+    "slug": "Beef",
+    "en": "Beef"
+  },
+  "양파": {
+    "slug": "Onion",
+    "en": "Onion"
+  },
+  "호박": {
+    "slug": "Pumpkin",
+    "en": "Pumpkin"
+  },
+  "버터": {
+    "slug": "Butter",
+    "en": "Butter"
+  },
+  "우담바라": {
+    "slug": "Udumbara",
+    "en": "Udumbara"
+  },
+  "멧돼지 고기": {
+    "slug": "BoarMeat",
+    "en": "Boar Meat"
+  },
+  "은행": {
+    "slug": "GinkgoNut",
+    "en": "Ginkgo Nut"
+  },
+  "흑돼지 고기": {
+    "slug": "IbericoPork",
+    "en": "Iberico Pork"
+  },
+  "죽순": {
+    "slug": "BambooShoot",
+    "en": "Bamboo Shoot"
+  },
+  "복어": {
+    "slug": "Pufferfish",
+    "en": "Pufferfish"
+  },
+  "와규 소고기": {
+    "slug": "WagyuBeef",
+    "en": "Wagyu Beef"
+  },
+  "복숭아": {
+    "slug": "Peach",
+    "en": "Peach"
+  },
+  "얼음": {
+    "slug": "IceCube",
+    "en": "Ice Cube"
+  },
+  "특상급 참치": {
+    "slug": "PremiumTuna",
+    "en": "Premium Tuna"
+  },
+  "새우": {
+    "slug": "Shrimp",
+    "en": "Shrimp"
+  },
+  "찹쌀": {
+    "slug": "StickyRice",
+    "en": "Sticky Rice"
+  },
+  "밀가루": {
+    "slug": "Flour",
+    "en": "Flour"
+  },
+  "연어": {
+    "slug": "Salmon",
+    "en": "Salmon"
+  },
+  "참치": {
+    "slug": "Tuna",
+    "en": "Tuna"
+  },
+  "송로버섯": {
+    "slug": "Truffle",
+    "en": "Truffle"
+  },
+  "사슴고기": {
+    "slug": "Venison",
+    "en": "Venison"
+  },
+  "월광초": {
+    "slug": "LunarHerb",
+    "en": "Lunar Herb"
+  },
+  "대나무": {
+    "slug": "Bamboo",
+    "en": "Bamboo"
+  },
+  "크림": {
+    "slug": "Cream",
+    "en": "Cream"
+  },
+  "오이": {
+    "slug": "Cucumber",
+    "en": "Cucumber"
+  },
+  "블랙솔트": {
+    "slug": "BlackSalt",
+    "en": "Black Salt"
+  },
+  "문어": {
+    "slug": "Octopus",
+    "en": "Octopus"
+  },
+  "게": {
+    "slug": "Crab",
+    "en": "Crab"
+  },
+  "성게": {
+    "slug": "SeaUrchin",
+    "en": "Sea Urchin"
+  },
+  "포도": {
+    "slug": "Grapes",
+    "en": "Grapes"
+  },
+  "치즈": {
+    "slug": "Cheese",
+    "en": "Cheese"
+  },
+  "레몬": {
+    "slug": "Lemon",
+    "en": "Lemon"
+  },
+  "고구마": {
+    "slug": "SweetPotato",
+    "en": "Sweet Potato"
+  },
+  "잣": {
+    "slug": "PineNut",
+    "en": "Pine Nut"
+  },
+  "연밥": {
+    "slug": "LotusSeed",
+    "en": "Lotus Seed"
+  },
+  "쌍연꽃": {
+    "slug": "BingdiLotus",
+    "en": "Bingdi Lotus"
+  },
+  "밤": {
+    "slug": "Chestnut",
+    "en": "Chestnut"
+  },
+  "토마토": {
+    "slug": "Tomato",
+    "en": "Tomato"
+  },
+  "꽃": {
+    "slug": "Flower",
+    "en": "Flower"
+  },
+  "매실": {
+    "slug": "Plum",
+    "en": "Plum"
+  },
+  "팥": {
+    "slug": "RedBean",
+    "en": "Red Bean"
+  },
+  "참죽": {
+    "slug": "RedToon",
+    "en": "Red Toon"
+  },
+  "브로콜리": {
+    "slug": "Broccoli",
+    "en": "Broccoli"
+  },
+  "코코아": {
+    "slug": "CocoaBean",
+    "en": "Cocoa Bean"
+  },
+  "벽려": {
+    "slug": "CreepingFig",
+    "en": "Creeping Fig"
+  },
+  "흰목이버섯": {
+    "slug": "SnowFungus",
+    "en": "Snow Fungus"
+  }
 }
