@@ -1,7 +1,7 @@
 ---
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
 import AdSlot from '../../components/AdSlot.astro';
-import { allDishes, dishName, dishIcon, portrait, fans, base, ingIcon, ingEn, custEn, customerLines, type Dish } from '../../lib/match';
+import { allDishes, dishName, dishIcon, portrait, fans, base, ingIcon, ingEn, custEn, customerLines, customerUrl, type Dish } from '../../lib/match';
 
 export function getStaticPaths() {
   return allDishes.map((d) => ({ params: { id: d.id }, props: { dish: d } }));
@@ -11,7 +11,7 @@ const name = dishName(dish);
 const who = fans(dish);
 const icon = dishIcon(dish);
 const tagAnchor = (t: string) => `${base}/tags/food/#t-${t.replace(/\s+/g, '-')}`;
-const custUrl = (n: string) => `${base}/customers/favorites/#c-${encodeURIComponent(n)}`;
+const custUrl = (n: string) => customerUrl(n);
 ---
 <StarlightPage
   frontmatter={{
