@@ -279,3 +279,6 @@ html:not([data-lang='en']) .en-only { display: none !important; }
 .cust-nav { display: flex; justify-content: space-between; gap: 0.5rem; margin-top: 2rem; flex-wrap: wrap; }
 a.fav-name { color: inherit; text-decoration: none; }
 a.fav-name:hover b { text-decoration: underline; }
+
+/* 요리 칸 줄맞춤 (본문 기본 여백이 첫 칸 빼고 붙는 것 막기) */
+.sl-markdown-content .tiles > * { margin-top: 0 !important; }
